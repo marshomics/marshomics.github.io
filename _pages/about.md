@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Microbiome Engineering"
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
