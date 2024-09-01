@@ -21,7 +21,7 @@ repository               : "marshomics/marshomics.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/images/5DIV5797.jpg"
+  avatar           : "5DIV5797.jpg"
   name             : "James Marsh"
   pronouns         : # example: "she/her"  
   bio              : "bio: |
