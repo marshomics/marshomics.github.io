@@ -146,7 +146,8 @@
 
 .author__bio {
   margin: 0;
-
+  white-space: pre-wrap; /* This will preserve line breaks and whitespace */
+  
   @include breakpoint($large) {
     margin-top: 10px;
     margin-bottom: 20px;
