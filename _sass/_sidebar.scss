@@ -115,6 +115,22 @@
   }
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  text-align: center; /* Center the image horizontally */
+}
+
 .author__name {
   margin: 0;
 
