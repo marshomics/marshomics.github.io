@@ -1,7 +1,5 @@
 {% include base_path %}
 
-<img src="/images/logos.png" alt="logos">
-
 {% if page.author_profile or layout.author_profile or page.sidebar %}
   <div class="sidebar sticky">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
@@ -25,3 +23,5 @@
   {% endif %}
   </div>
 {% endif %}
+
+<img src="/images/logos.png" alt="logos" width="100" height="50">
