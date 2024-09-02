@@ -167,7 +167,12 @@
       link-target="_blank"
       link-image="true"
       load-more="true"
-      custom-styles="img.rounded-full { display: none; } .flex > div { max-width: 100%; } .whitespace-pre-wrap { word-wrap: break-word;}"
+      custom-styles="
+        img.rounded-full { display: none; } 
+        .flex > div { max-width: 100%; } 
+        .whitespace-pre-wrap { word-wrap: break-word; }
+        .whitespace-pre-wrap, .flex, .whitespace-nowrap { font-size: 12px; } /* Adjust font size */
+      "
     >
     </bsky-embed>
   </div>
