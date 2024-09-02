@@ -128,7 +128,15 @@
 
 .sidebar-footer {
   margin-top: auto;
-  text-align: left; /* Center the image horizontally */
+  text-align: left; /* Align content to the left */
+}
+
+.sidebar-footer figure {
+  width: 100px;
+  height: 50px;
+  margin: 0; /* Removes default margin of figure */
+  display: block; /* Ensures block-level behavior */
+  text-align: left; /* Ensures the figure's content aligns left */
 }
 
 .author__name {
