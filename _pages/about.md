@@ -19,22 +19,29 @@ The community of microorganisms within the human gastrointestinal tract is one o
         .image-text-container {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Ensures space between image and text */
+            justify-content: space-between; /* Ensures space between text and image */
             margin: 20px;
         }
         .image-text-container img {
-            width: 30%; /* Sets image to half its container's width */
-            max-width: 300px; /* Optional: Limits maximum width for responsiveness */
+            width: 70%; /* Increased from 50% to 60% for a larger image */
+            max-width: 500px; /* Increased maximum width for better visibility */
             height: auto;
+            cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+            border: 2px solid #ccc; /* Optional: Adds a subtle border around the image */
+            border-radius: 5px; /* Optional: Rounds the corners of the image */
+            transition: transform 0.3s; /* Optional: Adds a hover effect */
+        }
+        .image-text-container img:hover {
+            transform: scale(1.05); /* Optional: Slightly enlarges image on hover */
         }
         .image-text-container .text {
-            margin-right: 20px; /* Adds space between the text and the image */
-            font-size: 0.8em;
+            margin-right: 20px; /* Maintains space between text and image */
+            font-size: 1.2em;
             color: #333;
             flex: 1; /* Allows the text to take up remaining space */
         }
         /* Responsive Design for Smaller Screens */
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             .image-text-container {
                 flex-direction: column-reverse; /* Stacks image above text */
                 align-items: flex-start;
@@ -54,7 +61,9 @@ The community of microorganisms within the human gastrointestinal tract is one o
 
 <div class="image-text-container">
     <div class="text">The human gut microbiome dark matter</div>
-    <img src="/images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree">
+    <a href="images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
+        <img src="images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree">
+    </a>
 </div>
 
 </body>
