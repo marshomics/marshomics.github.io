@@ -16,31 +16,38 @@ The community of microorganisms within the human gastrointestinal tract is one o
     <meta charset="UTF-8">
     <title>Microbiome Engineering</title>
     <style>
+        /* Container for image and text */
         .image-text-container {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Ensures space between text and image */
+            justify-content: space-between; /* Positions items at both ends */
             margin: 20px;
         }
-        .image-text-container img {
-            width: 70%; /* Increased from 50% to 60% for a larger image */
-            max-width: 500px; /* Increased maximum width for better visibility */
-            height: auto;
-            cursor: pointer; /* Changes cursor to pointer to indicate clickability */
-            border: 2px solid #ccc; /* Optional: Adds a subtle border around the image */
-            border-radius: 5px; /* Optional: Rounds the corners of the image */
-            transition: transform 0.3s; /* Optional: Adds a hover effect */
-        }
-        .image-text-container img:hover {
-            transform: scale(1.05); /* Optional: Slightly enlarges image on hover */
-        }
+
+        /* Styling for the text section */
         .image-text-container .text {
-            margin-right: 20px; /* Maintains space between text and image */
-            font-size: 1.2em;
+            font-size: 0.8em;
             color: #333;
-            flex: 1; /* Allows the text to take up remaining space */
+            flex: 1; /* Allows text to take up remaining space */
+            margin-right: 20px; /* Space between text and image */
         }
-        /* Responsive Design for Smaller Screens */
+
+        /* Styling for the image */
+        .image-text-container img {
+            width: 60%; /* Increased width for a larger image */
+            max-width: 600px; /* Increased max-width for better visibility */
+            height: auto;
+            cursor: pointer; /* Indicates the image is clickable */
+            /* Removed border and border-radius */
+            transition: transform 0.3s; /* Smooth hover effect */
+        }
+
+        /* Hover effect for the image */
+        .image-text-container img:hover {
+            transform: scale(1.05); /* Slightly enlarges the image on hover */
+        }
+
+        /* Responsive Design for Medium and Smaller Screens */
         @media (max-width: 800px) {
             .image-text-container {
                 flex-direction: column-reverse; /* Stacks image above text */
@@ -48,10 +55,10 @@ The community of microorganisms within the human gastrointestinal tract is one o
             }
             .image-text-container .text {
                 margin-right: 0;
-                margin-bottom: 10px;
+                margin-bottom: 10px; /* Space between text and image */
             }
             .image-text-container img {
-                width: 100%;
+                width: 100%; /* Image takes full width on smaller screens */
                 max-width: none;
             }
         }
@@ -59,12 +66,12 @@ The community of microorganisms within the human gastrointestinal tract is one o
 </head>
 <body>
 
-<div class="image-text-container">
-    <div class="text">The human gut microbiome dark matter</div>
-    <a href="images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
-        <img src="images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree">
-    </a>
-</div>
+    <div class="image-text-container">
+        <div class="text">The human gut microbiome dark matter</div>
+        <a href="images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
+            <img src="images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree" loading="lazy">
+        </a>
+    </div>
 
 </body>
 </html>
