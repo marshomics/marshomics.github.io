@@ -114,8 +114,22 @@ The community of microorganisms within the human gastrointestinal tract is one o
 </div>
 
 <div class="news-item">
-    <span class="year">2024:</span> Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James is developing new microbiome engineering techniques.
+    <span class="year">2024:</span> Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James was awarded part of a worldwide collaborative grant by the Global Methane Hub to develop <em>Genetic Toolkits for Rumen Bacteria and Methanogens to Enable Methane Mitigation Strategies.</em>
 </div>
+
+<div class="news-item">
+    <span class="year">2024:</span> We were quoted in the Washington Post: <em><a href="https://www.washingtonpost.com/climate-solutions/interactive/2024/cows-methane-emissions-gene-editing-microbiome/" target="_blank" rel="noopener noreferrer">Scientists may have found a radical solution for making your hamburger less bad for the planet</a></em>
+</div>
+
+<div class="news-item">
+    <span class="year">2024:</span> We were quoted in the Washington Post: <em><a href="https://www.washingtonpost.com/climate-solutions/interactive/2024/cows-methane-emissions-gene-editing-microbiome/" target="_blank" rel="noopener noreferrer">Scientists may have found a radical solution for making your hamburger less bad for the planet</a></em>
+</div>
+
+<div class="news-item">
+    <span class="year">2024:</span> James was featured in an article in The Scientist magazine: <em><a href="https://www.the-scientist.com/engineering-the-microbiome-crispr-leads-the-way-71698" target="_blank" rel="noopener noreferrer">Engineering the Microbiome: CRISPR Leads the Way</a></em>
+</div>
+
+
 
 
 
