@@ -97,13 +97,15 @@ The community of microorganisms within the human gastrointestinal tract is one o
     
     /* Style for news items */
     .news-item {
-        margin-left: 40px; /* Indentation for a "tabbed" effect */
-        text-indent: -40px; /* Aligns the second line with the first */
-        padding-bottom: 10px; /* Space between items */
+        padding-left: 60px; /* Add padding to align all text properly after the bold year */
+        margin-bottom: 15px; /* Space between items */
+        position: relative; /* Allows absolute positioning of the year */
     }
     
     .news-item span.year {
         font-weight: bold; /* Makes "2024" bold */
+        position: absolute;
+        left: 0; /* Aligns the year to the left */
     }
 </style>
 
@@ -112,10 +114,8 @@ The community of microorganisms within the human gastrointestinal tract is one o
 </div>
 
 <div class="news-item">
-    <span class="year">2024:</span> Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James 
+    <span class="year">2024:</span> Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James is developing new microbiome engineering techniques.
 </div>
-
-
 
 
 
