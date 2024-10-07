@@ -23,16 +23,22 @@ redirect_from:
 
 The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the intertwined interactions that drive the emergent properties of the community.
 
-<style>
-  tr:empty {
-    display: none;
-  }
-</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll("table tr");
+    rows.forEach(row => {
+      // Check if the row contains only whitespace or is empty
+      if (!row.textContent.trim()) {
+        row.style.display = "none"; // Or you can use row.remove() to completely remove the row
+      }
+    });
+  });
+</script>
 
 <table>
   <tr><td>Row 1</td></tr>
-  <tr><td> </td></tr> <!-- This won't be hidden because :empty doesn't detect whitespace -->
-  <tr><td></td></tr> <!-- This row will be hidden -->
+  <tr><td>  </td></tr> <!-- This row will be hidden -->
+  <tr><td></td></tr> <!-- This row will also be hidden -->
 </table>
 
 <html lang="en">
