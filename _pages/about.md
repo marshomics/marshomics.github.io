@@ -39,6 +39,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
             font-size: 0.6em;
             color: #333;
             margin-right: 400px; /* Adjusted space for the larger image */
+            padding-top: 2em; /* Moves the text down by approximately two lines */
         }
 
         /* Styling for the image */
@@ -76,13 +77,13 @@ The community of microorganisms within the human gastrointestinal tract is one o
 <body>
 
     <div class="image-text-container">
-    <div class="text" style="margin-top: 2em;">
-        <strong>Figure:</strong> Over 6,000 unique species have been identified in the human gut, forming a highly diverse microbial tree of life. Together, these species encode more than 25 million genes, yet only 0.2% of them have been functionally characterized. As a result, much of the genetic content of the human gut remains unexplored and beyond the reach of current genetic tools. Developing new methods to access this genetic “dark matter” is essential to uncover the functional mechanisms driving gut dynamics.
+        <div class="text">
+            <strong>Figure:</strong> Over 6,000 unique species have been identified in the human gut, forming a highly diverse microbial tree of life. Together, these species encode more than 25 million genes, yet only 0.2% of them have been functionally characterized. As a result, much of the genetic content of the human gut remains unexplored and beyond the reach of current genetic tools. Developing new methods to access this genetic “dark matter” is essential to uncover the functional mechanisms driving gut dynamics.
+        </div>
+        <a href="/images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
+            <img src="/images/genetic_dark_matter_with_tree.png" alt="Diagram showing genetic dark matter alongside a phylogenetic tree" loading="lazy">
+        </a>
     </div>
-    <a href="/images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
-        <img src="/images/genetic_dark_matter_with_tree.png" alt="Diagram showing genetic dark matter alongside a phylogenetic tree" loading="lazy">
-    </a>
-</div>
 
 </body>
 </html>
