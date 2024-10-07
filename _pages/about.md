@@ -125,6 +125,10 @@ The community of microorganisms within the human gastrointestinal tract is one o
     <span class="year">2024:</span> James was featured in an article in The Scientist magazine: <em><a href="https://www.the-scientist.com/engineering-the-microbiome-crispr-leads-the-way-71698" target="_blank" rel="noopener noreferrer">Engineering the Microbiome: CRISPR Leads the Way</a></em>
 </div>
 
+<div class="news-item">
+    <span class="year">2023:</span> Our review, co-authored with Christian Kirk and Ruth Ley has been published in Annual Review of Microbiology! <em><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-micro-032421-112304" target="_blank" rel="noopener noreferrer">Toward Microbiome Engineering</a></em>
+</div>
+
 
 
 
