@@ -9,20 +9,14 @@ redirect_from:
 
 ![1pager](images/web_header2.png "Heading")
 
-<style>
-  tr:empty {
-    display: none;
-  }
-</style>
+What we do
+======
 
-<table>
-  <tr><td>Row 1</td></tr>
-  <tr><td> </td></tr> <!-- This won't be hidden because :empty doesn't detect whitespace -->
-  <tr><td></td></tr> <!-- This row will be hidden -->
-</table>
-
+  
 The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the intertwined interactions that drive the emergent properties of the community.
-
+  
+  
+  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +71,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
 <body>
 
     <div class="image-text-container">
-        <div class="text">The human gut microbiome dark matter</div>
+        <div class="text">The human gut microbiome dark matter flexible flexible flexible flexible flexible flexible flexible flexible flexible flexible </div>
         <a href="/images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
             <img src="/images/genetic_dark_matter_with_tree.png" alt="Diagram showing genetic dark matter alongside a phylogenetic tree" loading="lazy">
         </a>
