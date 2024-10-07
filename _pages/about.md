@@ -95,25 +95,25 @@ The community of microorganisms within the human gastrointestinal tract is one o
         margin-top: 70px; /* Increase this to add more space */
     }
     
-    .news-list {
-        list-style: none; /* Removes default bullet points */
-        padding-left: 0; /* Resets default padding */
+    /* Style for news items */
+    .news-item {
+        margin-left: 40px; /* Indentation for a "tabbed" effect */
+        text-indent: -40px; /* Aligns the second line with the first */
+        padding-bottom: 10px; /* Space between items */
     }
-
-    .news-list li {
-        padding-left: 20px; /* Creates a "tabbed" effect */
-        text-indent: -10px; /* Adjusts first line indentation */
-    }
-
-    .news-list li:before {
-        content: '• '; /* Adds a bullet point manually */
+    
+    .news-item span.year {
+        font-weight: bold; /* Makes "2024" bold */
     }
 </style>
 
-<ul class="news-list">
-    <li>*2024*: The Group will be featured in a documentary on microbiome-immune interactions to be aired on Südwestrundfunk (SWR) in November (Germany).</li>
-    <li>*2024*: Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James</li>
-</ul>
+<div class="news-item">
+    <span class="year">2024:</span> The Group will be featured in a documentary on microbiome-immune interactions to be aired on Südwestrundfunk (SWR) in November (Germany).
+</div>
+
+<div class="news-item">
+    <span class="year">2024:</span> Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James 
+</div>
 
 
 
