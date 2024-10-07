@@ -23,24 +23,6 @@ redirect_from:
 
 The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the intertwined interactions that drive the emergent properties of the community.
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const rows = document.querySelectorAll("table tr");
-    rows.forEach(row => {
-      // Check if the row contains only whitespace or is empty
-      if (!row.textContent.trim()) {
-        row.style.display = "none"; // Or you can use row.remove() to completely remove the row
-      }
-    });
-  });
-</script>
-
-<table>
-  <tr><td>Row 1</td></tr>
-  <tr><td>  </td></tr> <!-- This row will be hidden -->
-  <tr><td></td></tr> <!-- This row will also be hidden -->
-</table>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,7 +31,8 @@ The community of microorganisms within the human gastrointestinal tract is one o
         /* Container for image and text */
         .image-text-container {
             display: flex;
-            justify-content: space-between; /* Positions items at both ends */
+            align-items: center;
+            justify-content: flex-end; /* Align items to the right */
             margin: 20px;
         }
 
@@ -57,7 +40,6 @@ The community of microorganisms within the human gastrointestinal tract is one o
         .image-text-container .text {
             font-size: 0.8em;
             color: #333;
-            flex: 1; /* Allows text to take up remaining space */
             margin-right: 20px; /* Space between text and image */
         }
 
@@ -96,7 +78,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
 
     <div class="image-text-container">
         <div class="text">The human gut microbiome dark matter</div>
-        <a href="images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
+        <a href="/images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
             <img src="/images/genetic_dark_matter_with_tree.png" alt="Diagram showing genetic dark matter alongside a phylogenetic tree" loading="lazy">
         </a>
     </div>
