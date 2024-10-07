@@ -91,7 +91,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
 <h1 class="news-heading">News</h1>
 
 <style>
-    .news-heading-heading {
+    .news-heading {
         margin-top: 50px; /* Increase this to add more space */
     }
 </style>
