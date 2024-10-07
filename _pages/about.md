@@ -50,7 +50,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
         /* Responsive Design for Medium and Smaller Screens */
         @media (max-width: 800px) {
             .image-text-container {
-                flex-direction: column-reverse; /* Stacks image above text */
+                flex-direction: column; /* Stacks image below text */
                 align-items: flex-start;
             }
             .image-text-container .text {
@@ -69,7 +69,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
     <div class="image-text-container">
         <div class="text">The human gut microbiome dark matter</div>
         <a href="images/genetic_dark_matter_with_tree.png" target="_blank" title="View Full-Size Image">
-            <img src="images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree" loading="lazy">
+            <img src="/images/genetic_dark_matter_with_tree.png" alt="Genetic Dark Matter with Tree" loading="lazy">
         </a>
     </div>
 
