@@ -94,11 +94,26 @@ The community of microorganisms within the human gastrointestinal tract is one o
     .news-heading {
         margin-top: 70px; /* Increase this to add more space */
     }
+    
+    .news-list {
+        list-style: none; /* Removes default bullet points */
+        padding-left: 0; /* Resets default padding */
+    }
+
+    .news-list li {
+        padding-left: 20px; /* Creates a "tabbed" effect */
+        text-indent: -10px; /* Adjusts first line indentation */
+    }
+
+    .news-list li:before {
+        content: '• '; /* Adds a bullet point manually */
+    }
 </style>
 
-*2024*: The Group will be featured in a documentary on microbiome-immune interactions to be aired on Südwestrundfunk (SWR) in November (Germany).
-
-*2024*: Together with [Bastian Molitor](https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/) at the University of Tübingen, James 
+<ul class="news-list">
+    <li>*2024*: The Group will be featured in a documentary on microbiome-immune interactions to be aired on Südwestrundfunk (SWR) in November (Germany).</li>
+    <li>*2024*: Together with <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen/geo-und-umweltnaturwissenschaften/geo-und-umweltnaturwissenschaften/umweltbiotechnologie/arbeitsgruppe/molitor-lab/" target="_blank" rel="noopener noreferrer">Bastian Molitor</a> at the University of Tübingen, James</li>
+</ul>
 
 
 
