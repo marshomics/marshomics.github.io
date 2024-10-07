@@ -11,8 +11,53 @@ redirect_from:
 
 The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the intertwined interactions that drive the emergent properties of the community.
 
-<img src="/images/genetic_dark_matter_with_tree.png" alt="Microbiome Genetic Dark Matter">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microbiome Engineering</title>
+    <style>
+        .image-text-container {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .image-text-container img {
+            width: 50%; /* Adjusts the image to half its original size */
+            max-width: 300px; /* Optional: Sets a maximum width for better responsiveness */
+            height: auto;
+        }
+        .image-text-container .text {
+            margin-left: 20px; /* Adds space between the image and the text */
+            font-size: 1.2em;
+            color: #333;
+        }
+        /* Optional: Responsive adjustments */
+        @media (max-width: 600px) {
+            .image-text-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .image-text-container .text {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .image-text-container img {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
 
+<div class="image-text-container">
+    <img src="/images/genetic_dark_matter_with_tree.png" alt="Microbiome Genetic Dark Matter">
+    <div class="text">The human gut microbiome dark matter</div>
+</div>
+
+</body>
+</html>
 
 
 
