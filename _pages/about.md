@@ -36,7 +36,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
 
         /* Styling for the text section */
         .image-text-container .text {
-            font-size: 0.8em;
+            font-size: 0.6em;
             color: #333;
             margin-right: 400px; /* Adjusted space for the larger image */
         }
