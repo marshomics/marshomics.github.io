@@ -122,10 +122,6 @@ The community of microorganisms within the human gastrointestinal tract is one o
 </div>
 
 <div class="news-item">
-    <span class="year">2024:</span> We were quoted in the Washington Post: <em><a href="https://www.washingtonpost.com/climate-solutions/interactive/2024/cows-methane-emissions-gene-editing-microbiome/" target="_blank" rel="noopener noreferrer">Scientists may have found a radical solution for making your hamburger less bad for the planet</a></em>
-</div>
-
-<div class="news-item">
     <span class="year">2024:</span> James was featured in an article in The Scientist magazine: <em><a href="https://www.the-scientist.com/engineering-the-microbiome-crispr-leads-the-way-71698" target="_blank" rel="noopener noreferrer">Engineering the Microbiome: CRISPR Leads the Way</a></em>
 </div>
 
