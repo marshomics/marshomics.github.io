@@ -18,7 +18,7 @@ redirect_from:
 </style>
 
   
-The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the intertwined interactions that drive the emergent properties of the community.
+The community of microorganisms within the human gastrointestinal tract is one of the most diverse ecosystems known, yet we currently have limited tools to unravel its intrinsic complexity. Next-generation sequencing approaches have been invaluable for the characterisation of gut microbial distribution, abundance, and evolution, but elucidating the mechanistic basis for these dynamics requires an ability to perturb the system through manipulation and testing. By developing novel microbiome engineering techniques, we are genetically reprogramming diverse, non-model organisms associated with the human gut to understand both their ecological niche and the interactions that drive community function.
   
   
   
