@@ -126,7 +126,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
 </div>
 
 <div class="news-item">
-    <span class="year">2023:</span> Our review, co-authored with Christian Kirk and Ruth Ley has been published in Annual Review of Microbiology! <em><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-micro-032421-112304" target="_blank" rel="noopener noreferrer">Toward Microbiome Engineering</a></em>
+    <span class="year">2023:</span> Our review, co-authored with Christian Kirk and <a href="https://leylab.com/" target="_blank" rel="noopener noreferrer">Ruth Ley</a> has been published in Annual Review of Microbiology! <em><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-micro-032421-112304" target="_blank" rel="noopener noreferrer">Toward Microbiome Engineering</a></em>
 </div>
 
 <h1 class="about-us-heading">About us</h1>
@@ -139,7 +139,9 @@ The community of microorganisms within the human gastrointestinal tract is one o
 
 We are a group in Ruth Ley's Department of Microbiome Science at Max Planck Institute for Biology. 
 
-
+<a href="/images/images/12-07-2023-15-33-49.jpg" target="_blank" title="View Full-Size Image">
+            <img src="/images/images/12-07-2023-15-33-49.jpg" alt="Genetics Group" loading="lazy">
+        </a>
 
 
 
