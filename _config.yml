@@ -29,16 +29,16 @@ author:
                      Department of Microbiome Science"
   location         : "Tübingen, Germany"
   employer         : "Max Planck Institute for Biology"
-  uri              : ""
+  uri              : # No website
   email            : "james.marsh@tuebingen.mpg.de" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "" # https://scholar.google.com/citations?hl=en&user=_XniNzQAAAAJ&sortby=pubdate&view_op=list_works&gmla=AC6lMd-zpJKjEbZN6OkXNbpRLdZLl-Ih4-AGdlyIzo9TOuEvMd6fUuTKgQEk-deqoLbphewM65AE8dncE43f_qvw
+  googlescholar    : # https://scholar.google.com/citations?hl=en&user=_XniNzQAAAAJ&sortby=pubdate&view_op=list_works&gmla=AC6lMd-zpJKjEbZN6OkXNbpRLdZLl-Ih4-AGdlyIzo9TOuEvMd6fUuTKgQEk-deqoLbphewM65AE8dncE43f_qvw
   impactstory      : # URL
   orcid            : "https://orcid.org/0000-0003-4681-1012"
   semantic         : # URL
-  pubmed           : "" # https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow
+  pubmed           : # https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow
   researchgate     : # URL
 
   # Repositories and software development
