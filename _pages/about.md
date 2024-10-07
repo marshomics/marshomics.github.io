@@ -26,14 +26,14 @@ The community of microorganisms within the human gastrointestinal tract is one o
         .image-text-container {
             position: relative; /* Allows absolute positioning for the image */
             margin: 20px;
-            padding-right: 20px; /* Space between image and right margin */
+            padding-right: 40px; /* Extra space for larger image */
         }
 
         /* Styling for the text section */
         .image-text-container .text {
             font-size: 0.8em;
             color: #333;
-            margin-right: 250px; /* Create space for the fixed image width */
+            margin-right: 400px; /* Adjusted space for the larger image */
         }
 
         /* Styling for the image */
@@ -41,7 +41,7 @@ The community of microorganisms within the human gastrointestinal tract is one o
             position: absolute; /* Allow the image to float on the right */
             right: 0; /* Align image to the right margin */
             top: 0; /* Align image to the top of the container */
-            width: 250px; /* Static width for the image */
+            width: 400px; /* Larger static width for the image */
             height: auto; /* Keep the image ratio intact */
             cursor: pointer; /* Indicates the image is clickable */
             transition: transform 0.3s; /* Smooth hover effect */
