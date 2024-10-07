@@ -137,12 +137,11 @@ The community of microorganisms within the human gastrointestinal tract is one o
     }
 </style>
 
-We are a group in Ruth Ley's Department of Microbiome Science at Max Planck Institute for Biology. 
+<p>We are a group in Ruth Ley's Department of Microbiome Science at Max Planck Institute for Biology.</p>
 
 <a href="/images/12-07-2023-15-33-49.jpg" target="_blank" title="View Full-Size Image">
-            <img src="/images/12-07-2023-15-33-49.jpg" alt="Genetics Group" loading="lazy">
-        </a>
-
+    <img src="/images/12-07-2023-15-33-49.jpg" alt="Genetics Group" loading="lazy" style="display: block; margin: auto; width: 50%;">
+</a>
 
 
 
