@@ -203,13 +203,8 @@ hr {
 #main > .sidebar {
   background: var(--jm-bg-soft);
   font-size: 0.9em;
-  padding: 0;
-  /* margin-top matches the .page__title's effective top margin so the gray
-     panel starts at the same y-coordinate as the intro-block top (and on
-     internal pages, the page-title baseline). The grid stretches the
-     remaining height to the bottom of the row, so the panel still extends
-     to the page bottom. */
-  margin: 54px 0 0 0;
+  padding: 0 !important;            /* override academicpages base 60.4px padding-top */
+  margin: 54px 0 0 0 !important;    /* push sidebar down so its top aligns with intro-block top */
   width: auto;
   float: none;
   min-width: 0;
