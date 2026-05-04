@@ -102,8 +102,14 @@ hr {
   gap: 1.4em;
   align-items: center;
 }
-.greedy-nav .visible-links li { padding: 0; margin: 0; }
+.greedy-nav .visible-links li {
+  padding: 0; margin: 0;
+  background: transparent !important;
+  border: none !important;
+  list-style: none;
+}
 .greedy-nav .visible-links li::before { display: none; content: none; }
+.greedy-nav .visible-links a { background: transparent !important; padding: 0; }
 .greedy-nav .visible-links a {
   font-family: var(--jm-font-sans);
   font-size: 0.85rem;
@@ -290,54 +296,79 @@ hr {
   padding: calc(1.4rem + 3px) 1.6em 4em;     /* aligns title with intro-block content edge */
   margin: 0;
 }
-.bsky-mini__title,
-.jm-bsky-mini__title {
-  font-family: var(--jm-font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--jm-muted);
-  margin: 0 0 1em;
-  padding-top: 0;
-  border-top: none;
+/* Bsky title — high-specificity overrides so academicpages base h3 styling
+   (which would otherwise apply system sans serif at 14.4px with a 60+px
+   margin-top) loses to our mono small-cap label that exactly matches
+   .hero__eyebrow inside the intro-block. */
+#main > .sidebar .bsky-mini__title,
+#main > .sidebar .jm-bsky-mini__title,
+.sidebar .bsky-mini__title,
+.sidebar .jm-bsky-mini__title {
+  font-family: var(--jm-font-mono) !important;
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.18em !important;
+  color: var(--jm-muted) !important;
+  margin: 0 0 1em !important;
+  padding: 0 !important;
+  border: none !important;
+  line-height: 1.4 !important;
   display: block;
 }
 .bsky-mini__list,
 .jm-bsky-mini__list { list-style: none; padding: 0; margin: 0; }
 .bsky-mini__item,
 .jm-bsky-mini__item {
-  padding: 0.6em 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--jm-rule) 60%, transparent);
+  padding: 0.85em 0 !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--jm-rule) 60%, transparent) !important;
+  background: transparent !important;
+  list-style: none !important;
 }
 .bsky-mini__item:last-child,
-.jm-bsky-mini__item:last-child { border-bottom: none; }
+.jm-bsky-mini__item:last-child { border-bottom: none !important; }
+.bsky-mini__item::before,
+.jm-bsky-mini__item::before { display: none !important; content: none !important; }
 .bsky-mini__link,
 .jm-bsky-mini__link {
   display: block;
   border-bottom: none;
-  padding: 0.1em 0;
+  padding: 0;
   color: var(--jm-ink);
   transition: color 120ms ease;
 }
 .bsky-mini__link:hover,
 .jm-bsky-mini__link:hover { color: var(--jm-accent-2); }
-.bsky-mini__date,
-.jm-bsky-mini__date {
-  display: block;
-  font-family: var(--jm-font-mono);
-  font-size: 0.66rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--jm-muted);
-  margin-bottom: 0.25em;
+/* Date — small mono uppercase. Force overrides because academicpages base
+   <time> styling wins specificity. */
+#main > .sidebar .bsky-mini__date,
+#main > .sidebar .jm-bsky-mini__date,
+.sidebar .bsky-mini__date,
+.sidebar .jm-bsky-mini__date {
+  display: block !important;
+  font-family: var(--jm-font-mono) !important;
+  font-size: 0.66rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--jm-muted) !important;
+  margin: 0 0 0.4em !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
 }
-.bsky-mini__text,
-.jm-bsky-mini__text {
-  font-size: 0.78rem;
-  line-height: 1.45;
-  color: var(--jm-ink-soft);
-  margin: 0;
+/* Post body text — force Inter at readable size. academicpages's base <p>
+   styling renders at ~8px otherwise, so high-specificity + !important. */
+#main > .sidebar .bsky-mini__text,
+#main > .sidebar .jm-bsky-mini__text,
+.sidebar .bsky-mini__text,
+.sidebar .jm-bsky-mini__text {
+  font-family: var(--jm-font-sans) !important;
+  font-size: 0.82rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: var(--jm-ink-soft) !important;
+  margin: 0 !important;
+  padding: 0 !important;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: anywhere;
