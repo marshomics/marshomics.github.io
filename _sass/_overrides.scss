@@ -37,6 +37,11 @@
 
 /* ---- global resets / base ---- */
 html { scroll-behavior: smooth; }
+
+/* Force script tags hidden — academicpages's base CSS sets some inline scripts
+   to display:block, which makes the bsky-feed-compact JavaScript render as
+   visible text in the sidebar. This restores the browser default. */
+script { display: none !important; }
 body {
   font-family: var(--jm-font-sans);
   font-size: 16px;
@@ -111,9 +116,56 @@ hr {
 .greedy-nav .visible-links a:hover { color: var(--jm-accent); }
 .greedy-nav .visible-links li.selected a { color: var(--jm-ink); }
 .greedy-nav button { display: none; }
-.greedy-nav .hidden-links { display: none; }
+/* Defeat the academicpages greedy-nav overflow behaviour: render the
+   hidden-links UL inline (next to visible-links) instead of as a
+   positioned dropdown, so all 6 nav items are always visible. */
+.greedy-nav .hidden-links,
+.greedy-nav .hidden-links.hidden {
+  display: flex !important;
+  position: static !important;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  gap: 1.4em;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.greedy-nav .hidden-links li {
+  display: list-item;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none !important;
+}
+.greedy-nav .hidden-links li::before { display: none !important; content: none !important; }
+.greedy-nav .hidden-links a {
+  font-family: var(--jm-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--jm-muted);
+  border-bottom: none;
+  letter-spacing: 0;
+  text-transform: none;
+  background: transparent;
+  padding: 0;
+}
+.greedy-nav .hidden-links a:hover { color: var(--jm-accent); }
+/* Add gap between the visible-links and hidden-links ULs */
+.greedy-nav { gap: 1.4em; }
 
-/* "Marsh Lab" site-title — uppercase tracked label */
+/* "Marsh Lab" site-title — neutralize academicpages base styling */
+.masthead__menu-item--lg {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-right: 1.4em;
+}
 .masthead__menu-item--lg a {
   font-family: var(--jm-font-sans);
   font-weight: 600;
@@ -121,6 +173,9 @@ hr {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--jm-ink);
+  background: transparent;
+  padding: 0;
+  border: none;
 }
 .masthead__menu-item--lg a:hover { color: var(--jm-accent); }
 /* theme toggle pushed off — keep masthead clean for the alt design */
@@ -143,7 +198,12 @@ hr {
   background: var(--jm-bg-soft);
   font-size: 0.9em;
   padding: 0;
-  margin: 0;
+  /* margin-top matches the .page__title's effective top margin so the gray
+     panel starts at the same y-coordinate as the intro-block top (and on
+     internal pages, the page-title baseline). The grid stretches the
+     remaining height to the bottom of the row, so the panel still extends
+     to the page bottom. */
+  margin: 54px 0 0 0;
   width: auto;
   float: none;
   min-width: 0;
