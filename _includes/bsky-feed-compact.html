@@ -54,7 +54,7 @@
     return 'https://bsky.app/profile/' + authorHandle + '/post/' + rkey;
   }
 
-  // Pull the array of {thumb, fullsize, alt} regardless of which embed shape it's wrapped in.
+  /* Pull the array of {thumb, fullsize, alt} regardless of which embed shape it's wrapped in. */
   function imagesFromEmbed(embed) {
     if (!embed || !embed.$type) return [];
     var t = embed.$type;
