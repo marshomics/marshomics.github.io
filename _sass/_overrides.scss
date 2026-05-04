@@ -313,27 +313,46 @@ hr {
 }
 .bsky-mini__list,
 .jm-bsky-mini__list { list-style: none; padding: 0; margin: 0; }
-.bsky-mini__item,
-.jm-bsky-mini__item {
-  padding: 0.85em 0 !important;
-  border-bottom: 1px solid color-mix(in srgb, var(--jm-rule) 60%, transparent) !important;
+/* Post item — clear divider between posts, breathing room, transparent bg. */
+.sidebar .bsky-mini__item,
+.sidebar .jm-bsky-mini__item {
+  padding: 1em 0 !important;
+  border-bottom: 1px solid var(--jm-rule) !important;
   background: transparent !important;
   list-style: none !important;
+  margin: 0 !important;
 }
-.bsky-mini__item:last-child,
-.jm-bsky-mini__item:last-child { border-bottom: none !important; }
-.bsky-mini__item::before,
-.jm-bsky-mini__item::before { display: none !important; content: none !important; }
-.bsky-mini__link,
-.jm-bsky-mini__link {
-  display: block;
-  border-bottom: none;
-  padding: 0;
+.sidebar .bsky-mini__item:first-child,
+.sidebar .jm-bsky-mini__item:first-child { padding-top: 0.4em !important; }
+.sidebar .bsky-mini__item:last-child,
+.sidebar .jm-bsky-mini__item:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0.4em !important;
+}
+.sidebar .bsky-mini__item::before,
+.sidebar .jm-bsky-mini__item::before { display: none !important; content: none !important; }
+
+/* Link wrapping the whole post — subtle hover state for affordance. */
+.sidebar .bsky-mini__link,
+.sidebar .jm-bsky-mini__link {
+  display: block !important;
+  border-bottom: none !important;
+  padding: 0.4em 0.5em !important;
+  margin: -0.4em -0.5em !important;
   color: var(--jm-ink);
-  transition: color 120ms ease;
+  background: transparent;
+  border-radius: 4px;
+  transition: background 150ms ease, color 150ms ease;
 }
-.bsky-mini__link:hover,
-.jm-bsky-mini__link:hover { color: var(--jm-accent-2); }
+.sidebar .bsky-mini__link:hover,
+.sidebar .jm-bsky-mini__link:hover {
+  background: color-mix(in srgb, var(--jm-rule) 50%, transparent);
+  color: var(--jm-ink);
+}
+.sidebar .bsky-mini__link:hover .bsky-mini__date,
+.sidebar .jm-bsky-mini__link:hover .jm-bsky-mini__date {
+  color: var(--jm-accent-2) !important;
+}
 /* Date — small mono uppercase. Force overrides because academicpages base
    <time> styling wins specificity. */
 #main > .sidebar .bsky-mini__date,
@@ -368,28 +387,43 @@ hr {
   word-wrap: break-word;
   overflow-wrap: anywhere;
 }
-.bsky-mini__images,
-.jm-bsky-mini__images {
-  display: grid;
+/* Post images — constrained to sidebar width, soft rounded corners,
+   thin border to delineate edge against gray panel bg. */
+.sidebar .bsky-mini__images,
+.sidebar .jm-bsky-mini__images {
+  display: grid !important;
   gap: 3px;
-  margin-top: 0.5em;
+  margin: 0.7em 0 0.2em;
+  max-width: 100% !important;
+  overflow: hidden;
+  border-radius: 4px;
 }
 .bsky-mini__images--1, .jm-bsky-mini__images--1 { grid-template-columns: 1fr; }
 .bsky-mini__images--2, .jm-bsky-mini__images--2,
 .bsky-mini__images--3, .jm-bsky-mini__images--3,
 .bsky-mini__images--4, .jm-bsky-mini__images--4 { grid-template-columns: 1fr 1fr; }
-.bsky-mini__image,
-.jm-bsky-mini__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 3px;
-  display: block;
+.sidebar .bsky-mini__image,
+.sidebar .jm-bsky-mini__image {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  object-fit: cover !important;
+  display: block !important;
   background: var(--jm-bg-soft);
-  aspect-ratio: 1 / 1;
+  border: 1px solid color-mix(in srgb, var(--jm-ink) 8%, transparent);
+  border-radius: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-.bsky-mini__images--1 .bsky-mini__image,
-.jm-bsky-mini__images--1 .jm-bsky-mini__image { aspect-ratio: 16 / 10; }
+.sidebar .bsky-mini__images--1 .bsky-mini__image,
+.sidebar .jm-bsky-mini__images--1 .jm-bsky-mini__image { aspect-ratio: 16 / 10; }
+.sidebar .bsky-mini__images--2 .bsky-mini__image,
+.sidebar .jm-bsky-mini__images--2 .jm-bsky-mini__image,
+.sidebar .bsky-mini__images--3 .bsky-mini__image,
+.sidebar .jm-bsky-mini__images--3 .jm-bsky-mini__image,
+.sidebar .bsky-mini__images--4 .bsky-mini__image,
+.sidebar .jm-bsky-mini__images--4 .jm-bsky-mini__image { aspect-ratio: 1 / 1; }
 .bsky-mini__more,
 .jm-bsky-mini__more {
   display: inline-block;
