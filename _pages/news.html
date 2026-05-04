@@ -1,0 +1,26 @@
+---
+layout: archive
+title: "News"
+permalink: /news/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Lab updates, new preprints and papers, talks, and announcements.</p>
+
+<ul class="jm-news">
+{% for post in site.posts %}
+  <li class="jm-news__item">
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="jm-news__date">
+      {{ post.date | date: "%b %-d, %Y" }}
+    </time>
+    <div class="jm-news__body">
+      <h3 class="jm-news__title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      {% if post.excerpt %}<p class="jm-news__excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>{% endif %}
+    </div>
+  </li>
+{% endfor %}
+</ul>

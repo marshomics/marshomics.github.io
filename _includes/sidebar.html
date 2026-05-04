@@ -1,0 +1,30 @@
+{% include base_path %}
+
+{%- comment -%}
+  Sidebar for the alt-graphic design: shows the compact Bluesky feed only,
+  on every page. The lab identity (avatar/name/bio/social) is suppressed
+  via SCSS — the masthead's "Marsh Lab" link carries lab identity on internal
+  pages, and the home hero shows the lab name prominently on /.
+
+  Per-page flags still recognised:
+    bsky_sidebar: false  → suppress the Bluesky feed on a specific page
+    sidebar: [...]       → academicpages's manual sidebar entries (still works)
+{%- endcomment -%}
+
+{% if page.bsky_sidebar != false %}
+  <div class="sidebar sticky">
+    {% include bsky-feed-compact.html %}
+    {% if page.sidebar %}
+      {% for s in page.sidebar %}
+        {% if s.image %}
+          <img src="{% if s.image contains "://" %}{{ s.image }}{% else %}{{ s.image | prepend: "/images/" | prepend: base_path }}{% endif %}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+        {% endif %}
+        {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+        {% if s.text %}{{ s.text | markdownify }}{% endif %}
+      {% endfor %}
+      {% if page.sidebar.nav %}
+        {% include nav_list nav=page.sidebar.nav %}
+      {% endif %}
+    {% endif %}
+  </div>
+{% endif %}

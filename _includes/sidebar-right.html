@@ -1,0 +1,13 @@
+{%- comment -%}
+  Right sidebar for the home page. Currently hosts the compact Bluesky feed.
+  Activated by `right_sidebar: bsky` in a page's front matter and rendered
+  by the (lightly modified) _layouts/single.html.
+
+  Adding more sidebar widgets in future: extend the if-block here on the
+  `right_sidebar` value (e.g. `right_sidebar: github` could load a different
+  partial).
+{%- endcomment -%}
+
+<aside class="sidebar-right sticky" aria-label="Live updates">
+  {% if page.right_sidebar == "bsky" %}{% include bsky-feed-compact.html %}{% endif %}
+</aside>

@@ -1,0 +1,56 @@
+---
+layout: archive
+title: "People"
+permalink: /people/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p class="jm-people-intro">
+  We're a mixed group of computational and experimental microbiologists. The lab is small enough that everyone collaborates with everyone, large enough to run several independent project lines.
+</p>
+
+{% assign current = site.people | where: "status", "current" | sort: "order" %}
+{% assign alumni  = site.people | where: "status", "alumni"  | sort: "order" %}
+
+{% if current.size > 0 %}
+<div class="jm-people">
+  {% for person in current %}
+  <article class="jm-person">
+    <div class="jm-person__photo">
+      {% if person.photo %}
+        <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}" loading="lazy" onerror="this.style.display='none'">
+      {% endif %}
+    </div>
+    <div class="jm-person__body">
+      <h3 class="jm-person__name">{{ person.title }}</h3>
+      <p class="jm-person__role">{{ person.role }}</p>
+      {% if person.content and person.content != "" %}
+        <div class="jm-person__bio">{{ person.content | markdownify | strip_html | truncate: 220 }}</div>
+      {% endif %}
+      {% if person.links %}
+      <ul class="jm-person__links">
+        {% for link in person.links %}{% if link.url and link.url != "" %}
+          <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {% endif %}{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if alumni.size > 0 %}
+<h2 class="archive__subtitle">Alumni</h2>
+<ul class="jm-alumni">
+  {% for person in alumni %}
+  <li class="jm-alumni__item">
+    <span class="jm-alumni__name">{{ person.title }}</span>
+    <span class="jm-alumni__role"> — {{ person.role }}</span>
+    {% if person.next %}<span class="jm-alumni__next"> · {{ person.next }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

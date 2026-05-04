@@ -1,0 +1,22 @@
+# Top-nav order for marshomics.github.io (Marsh Lab).
+# Removing a link prevents it from showing in the header but does not prevent
+# the page from being included in the site (you can still link to it directly).
+
+main:
+  - title: "People"
+    url: /people/
+
+  - title: "Research"
+    url: /portfolio/
+
+  - title: "Publications"
+    url: /publications/
+
+  - title: "Software"
+    url: /software/
+
+  - title: "News"
+    url: /news/
+
+  - title: "Join"
+    url: /join/

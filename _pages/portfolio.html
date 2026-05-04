@@ -1,0 +1,15 @@
+---
+layout: archive
+title: "Research"
+permalink: /portfolio/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Ongoing and completed research projects, tools, and resources.</p>
+
+{% for post in site.portfolio %}
+  {% include archive-single.html %}
+{% endfor %}
+

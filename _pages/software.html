@@ -1,0 +1,14 @@
+---
+layout: archive
+title: "Software"
+permalink: /software/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Tools, pipelines, and databases released by the lab. Source for most projects is on GitHub at <a href="https://github.com/marshomics">github.com/marshomics</a>.</p>
+
+{% for post in site.software %}
+  {% include archive-single.html %}
+{% endfor %}

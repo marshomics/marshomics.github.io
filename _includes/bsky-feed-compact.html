@@ -1,0 +1,112 @@
+{%- comment -%}
+  Compact Bluesky feed for the sidebar (3 most recent posts, full text + photos).
+  Activated by `bsky_sidebar: true` in a page's front matter; the conditional
+  include is in the (lightly modified) _includes/sidebar.html.
+{%- endcomment -%}
+
+{%- assign bsky_handle = site.author.bluesky | default: "" -%}
+{%- assign bsky_clean  = bsky_handle | remove: "@" | strip -%}
+
+<aside class="jm-bsky-mini"
+       id="jm-bsky-mini"
+       data-handle="{{ bsky_clean }}"
+       data-limit="3"
+       aria-label="Recent posts on Bluesky">
+  <h3 class="jm-bsky-mini__title">Recent on Bluesky</h3>
+  <ol class="jm-bsky-mini__list">
+    <li class="jm-bsky-mini__item jm-bsky-mini__item--placeholder">
+      <p class="jm-bsky-mini__text">{% if bsky_clean == "" %}Set <code>author.bluesky</code> in <code>_config.yml</code>.{% else %}Loading…{% endif %}</p>
+    </li>
+  </ol>
+  {%- if bsky_clean != "" -%}
+  <a class="jm-bsky-mini__more" href="https://bsky.app/profile/{{ bsky_clean }}" rel="noopener">
+    @{{ bsky_clean }} <span aria-hidden="true">↗</span>
+  </a>
+  {%- endif -%}
+</aside>
+
+<script>
+(function () {
+  var root = document.getElementById('jm-bsky-mini');
+  if (!root) return;
+  var list   = root.querySelector('.jm-bsky-mini__list');
+  var handle = (root.dataset.handle || '').trim();
+  var limit  = parseInt(root.dataset.limit || '3', 10);
+  if (!handle || !list) return;
+
+  var endpoint = 'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed' +
+                 '?actor=' + encodeURIComponent(handle) +
+                 '&limit=' + limit +
+                 '&filter=posts_no_replies';
+
+  function fmtDate(iso) {
+    try {
+      var d = new Date(iso);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    } catch (e) { return ''; }
+  }
+  function escHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function postUrl(uri, authorHandle) {
+    var rkey = uri.split('/').pop();
+    return 'https://bsky.app/profile/' + authorHandle + '/post/' + rkey;
+  }
+
+  // Pull the array of {thumb, fullsize, alt} regardless of which embed shape it's wrapped in.
+  function imagesFromEmbed(embed) {
+    if (!embed || !embed.$type) return [];
+    var t = embed.$type;
+    if (t.indexOf('app.bsky.embed.images') !== -1 && embed.images) {
+      return embed.images;
+    }
+    if (t.indexOf('app.bsky.embed.recordWithMedia') !== -1 && embed.media) {
+      return imagesFromEmbed(embed.media);
+    }
+    return [];
+  }
+  function renderImages(post) {
+    var imgs = imagesFromEmbed(post.embed);
+    if (!imgs.length) return '';
+    var n = Math.min(imgs.length, 4);
+    return '<div class="jm-bsky-mini__images jm-bsky-mini__images--' + n + '">' +
+      imgs.slice(0, 4).map(function (im) {
+        return '<img class="jm-bsky-mini__image" src="' + escHtml(im.thumb) +
+               '" alt="' + escHtml(im.alt || '') + '" loading="lazy">';
+      }).join('') +
+    '</div>';
+  }
+
+  fetch(endpoint, { headers: { 'Accept': 'application/json' } })
+    .then(function (r) { if (!r.ok) throw new Error('API ' + r.status); return r.json(); })
+    .then(function (data) {
+      var items = (data && data.feed) || [];
+      if (!items.length) {
+        list.innerHTML = '<li class="jm-bsky-mini__item jm-bsky-mini__item--placeholder">' +
+          '<p class="jm-bsky-mini__text">No posts yet.</p></li>';
+        return;
+      }
+      list.innerHTML = items.map(function (item) {
+        var post   = item.post;
+        var record = post.record || {};
+        var url    = postUrl(post.uri, post.author.handle);
+        var date   = fmtDate(record.createdAt || post.indexedAt);
+        var text   = escHtml(record.text || '');
+        var isRepost = item.reason && item.reason.$type &&
+                       item.reason.$type.indexOf('reasonRepost') !== -1;
+        return '<li class="jm-bsky-mini__item">' +
+          '<a class="jm-bsky-mini__link" href="' + url + '" rel="noopener">' +
+            '<time class="jm-bsky-mini__date">' + date + (isRepost ? ' · ↻' : '') + '</time>' +
+            (text ? '<p class="jm-bsky-mini__text">' + text + '</p>' : '') +
+            renderImages(post) +
+          '</a>' +
+        '</li>';
+      }).join('');
+    })
+    .catch(function () {
+      list.innerHTML = '<li class="jm-bsky-mini__item jm-bsky-mini__item--placeholder">' +
+        '<p class="jm-bsky-mini__text">Feed unavailable.</p></li>';
+    });
+})();
+</script>

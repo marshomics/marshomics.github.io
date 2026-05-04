@@ -1,0 +1,160 @@
+{%- comment -%}
+  Live Bluesky feed (client-side, no auth required).
+  Reads `site.author.bluesky` (a handle like "marsh.bsky.social") from _config.yml.
+  Fetches recent author posts from the public AT Protocol API and renders them
+  styled to match the news list / archive items.
+
+  This file is custom to this site; upstream academicpages has nothing similar
+  so merges should never conflict.
+{%- endcomment -%}
+
+{%- assign bsky_handle = site.author.bluesky | default: "" -%}
+{%- assign bsky_clean  = bsky_handle | remove: "@" | strip -%}
+
+<div class="jm-bsky-block">
+  <div class="jm-bsky-head">
+    <h2 class="jm-bsky-head__title">Recent on Bluesky</h2>
+    {%- if bsky_clean != "" -%}
+    <a class="jm-bsky-head__link" href="https://bsky.app/profile/{{ bsky_clean }}" rel="noopener">
+      @{{ bsky_clean }} <span aria-hidden="true">↗</span>
+    </a>
+    {%- endif -%}
+  </div>
+
+  <ol class="jm-bsky"
+      id="jm-bsky-feed"
+      data-handle="{{ bsky_clean }}"
+      data-limit="5">
+    <li class="jm-bsky__post jm-bsky__post--placeholder">
+      <span class="jm-bsky__date">&nbsp;</span>
+      <div class="jm-bsky__body">
+        <p class="jm-bsky__text">{% if bsky_clean == "" %}Set <code>author.bluesky</code> in <code>_config.yml</code> to a handle (e.g. <code>marsh.bsky.social</code>) to enable the feed.{% else %}Loading recent posts…{% endif %}</p>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('jm-bsky-feed');
+  if (!root) return;
+  var handle = (root.dataset.handle || '').trim();
+  var limit  = parseInt(root.dataset.limit || '5', 10);
+  if (!handle) return; // graceful: leave the placeholder message in place
+
+  var endpoint = 'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed' +
+                 '?actor=' + encodeURIComponent(handle) +
+                 '&limit=' + limit +
+                 '&filter=posts_no_replies';
+
+  function fmtDate(iso) {
+    try {
+      var d = new Date(iso);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch (e) { return ''; }
+  }
+
+  // Auto-link bare URLs in plain text without parsing facets — good enough for a minimal feed
+  function linkify(text) {
+    var esc = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+    return esc.replace(
+      /\bhttps?:\/\/[^\s<>"']+/g,
+      function (m) {
+        var trimmed = m.replace(/[.,;:!?)\]]+$/, ''); // strip trailing punct
+        var trail   = m.slice(trimmed.length);
+        var display = trimmed.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        if (display.length > 48) display = display.slice(0, 45) + '…';
+        return '<a href="' + trimmed + '" rel="noopener">' + display + '</a>' + trail;
+      }
+    );
+  }
+
+  function postUrl(uri, authorHandle) {
+    var rkey = uri.split('/').pop();
+    return 'https://bsky.app/profile/' + authorHandle + '/post/' + rkey;
+  }
+
+  function escAttr(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  // Pull the array of {thumb, fullsize, alt} regardless of which embed shape it's wrapped in.
+  function imagesFromEmbed(embed) {
+    if (!embed || !embed.$type) return [];
+    var t = embed.$type;
+    if (t.indexOf('app.bsky.embed.images') !== -1 && embed.images) return embed.images;
+    if (t.indexOf('app.bsky.embed.recordWithMedia') !== -1 && embed.media) return imagesFromEmbed(embed.media);
+    return [];
+  }
+  function renderImages(post, postLink) {
+    var imgs = imagesFromEmbed(post.embed);
+    if (!imgs.length) return '';
+    var n = Math.min(imgs.length, 4);
+    return '<div class="jm-bsky__images jm-bsky__images--' + n + '">' +
+      imgs.slice(0, 4).map(function (im) {
+        return '<a class="jm-bsky__image-link" href="' + escAttr(postLink) + '" rel="noopener">' +
+          '<img class="jm-bsky__image" src="' + escAttr(im.thumb) +
+          '" alt="' + escAttr(im.alt || '') + '" loading="lazy">' +
+        '</a>';
+      }).join('') +
+    '</div>';
+  }
+
+  function render(items) {
+    if (!items.length) {
+      root.innerHTML = '<li class="jm-bsky__post jm-bsky__post--placeholder">' +
+        '<span class="jm-bsky__date">&nbsp;</span>' +
+        '<div class="jm-bsky__body"><p class="jm-bsky__text">No posts yet.</p></div>' +
+      '</li>';
+      return;
+    }
+    root.innerHTML = items.map(function (item) {
+      var post = item.post;
+      var record = post.record || {};
+      var isRepost = item.reason && item.reason.$type &&
+                     item.reason.$type.indexOf('reasonRepost') !== -1;
+      var dateIso  = record.createdAt || post.indexedAt;
+      var text     = linkify(record.text || '');
+      var url      = postUrl(post.uri, post.author.handle);
+
+      return '<li class="jm-bsky__post">' +
+        '<span class="jm-bsky__date">' + fmtDate(dateIso) + '</span>' +
+        '<div class="jm-bsky__body">' +
+          (isRepost
+            ? '<p class="jm-bsky__repost">↻ Reposted from @' + post.author.handle + '</p>'
+            : '') +
+          (text ? '<p class="jm-bsky__text">' + text + '</p>' : '') +
+          renderImages(post, url) +
+          '<p class="jm-bsky__meta">' +
+            '<a href="' + url + '" rel="noopener">View post ↗</a>' +
+          '</p>' +
+        '</div>' +
+      '</li>';
+    }).join('');
+  }
+
+  fetch(endpoint, { headers: { 'Accept': 'application/json' } })
+    .then(function (r) {
+      if (!r.ok) throw new Error('Bluesky API ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      render((data && data.feed) || []);
+    })
+    .catch(function () {
+      root.innerHTML =
+        '<li class="jm-bsky__post jm-bsky__post--placeholder">' +
+          '<span class="jm-bsky__date">&nbsp;</span>' +
+          '<div class="jm-bsky__body"><p class="jm-bsky__text">' +
+            'Bluesky feed temporarily unavailable. ' +
+            '<a href="https://bsky.app/profile/' + handle + '" rel="noopener">View on Bluesky ↗</a>' +
+          '</p></div>' +
+        '</li>';
+    });
+})();
+</script>
