@@ -349,33 +349,34 @@ hr {
 .sidebar .jm-bsky-mini__link:hover .jm-bsky-mini__text {
   color: var(--jm-accent-2) !important;
 }
-/* Date — small mono uppercase, more subtle. */
+/* Date — tiny mono uppercase. Root font-size is 18px (academicpages base),
+   so 0.5rem = 9px on the live site. */
 #main > .sidebar .bsky-mini__date,
 #main > .sidebar .jm-bsky-mini__date,
 .sidebar .bsky-mini__date,
 .sidebar .jm-bsky-mini__date {
   display: block !important;
   font-family: var(--jm-font-mono) !important;
-  font-size: 0.6rem !important;
+  font-size: 0.5rem !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.12em !important;
+  letter-spacing: 0.1em !important;
   color: var(--jm-muted) !important;
   margin: 0 0 0.35em !important;
   padding: 0 !important;
   line-height: 1.3 !important;
   transition: color 150ms ease;
 }
-/* Post body text — smaller, tighter, more editorial. Force Inter at readable
-   but compact size; academicpages's base <p> styling otherwise wins. */
+/* Post body text — significantly smaller. With 18px root, 0.6rem = 10.8px,
+   well below the 12.6px eyebrow so the sidebar feed reads as quiet meta-content. */
 #main > .sidebar .bsky-mini__text,
 #main > .sidebar .jm-bsky-mini__text,
 .sidebar .bsky-mini__text,
 .sidebar .jm-bsky-mini__text {
   font-family: var(--jm-font-sans) !important;
-  font-size: 0.74rem !important;
+  font-size: 0.6rem !important;
   font-weight: 400 !important;
-  line-height: 1.45 !important;
+  line-height: 1.5 !important;
   color: var(--jm-ink-soft) !important;
   margin: 0 !important;
   padding: 0 !important;
