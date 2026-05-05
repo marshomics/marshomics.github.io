@@ -229,7 +229,7 @@ hr {
   background: transparent !important;   /* sections carry their own gray panel bg now */
   font-size: 0.9em;
   padding: 0 !important;
-  margin: 3em 0 0 0 !important;
+  margin: 3rem 0 0 0 !important;       /* rem (root-relative) — 48px regardless of sidebar's 0.9em font-size */
   width: auto;
   float: none;
   min-width: 0;
@@ -1063,7 +1063,7 @@ p.alt-person__role {
 .jm-pubs,
 .jm-collection {
   padding: 0;
-  margin: 3em 0 0 0 !important;
+  margin: 3rem 0 0 0 !important;       /* rem so this matches the sidebar's 3rem regardless of local em context */
 }
 .jm-pubs > .alt-page__title,
 .jm-collection > .alt-page__title {
