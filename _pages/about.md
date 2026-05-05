@@ -120,18 +120,6 @@ redirect_from:
       </div>
     </article>
   </div>
-
-  <h2 class="alt-alumni-title">Alumni</h2>
-  <ul class="alt-alumni">
-    <li class="alt-alumni__item">
-      <span class="alt-alumni__name">Alumna Name</span> &mdash; Former PhD student (graduated 2024)
-      <span class="alt-alumni__next"> &middot; Now postdoc at Example University</span>
-    </li>
-    <li class="alt-alumni__item">
-      <span class="alt-alumni__name">Alumnus Name</span> &mdash; Former postdoc (2022&ndash;2025)
-      <span class="alt-alumni__next"> &middot; Now Assistant Professor at Example State</span>
-    </li>
-  </ul>
 </section>
 
 <hr class="main-divider">
