@@ -18,23 +18,41 @@ author_profile: true
   {% assign alumni  = site.people | where: "status", "alumni"  | sort: "order" %}
 
   {% if current.size > 0 %}
-    <div class="alt-people">
+    <ul class="jm-people-list">
       {% for person in current %}
-        <article class="alt-person">
-          <div class="alt-person__photo">
+        {%- comment -%}
+          Build initials fallback for entries without a photo.
+          Splits "James Marsh" → "J M" → "JM".
+        {%- endcomment -%}
+        {% assign initials = person.title | split: " " | map: "first" | join: "" | upcase %}
+        {% assign initials = initials | slice: 0, 2 %}
+        <li class="jm-people-item">
+          <div class="jm-people-photo">
             {% if person.photo %}
-              <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}" loading="lazy" onerror="this.style.display='none'">
+              <img src="{{ person.photo | relative_url }}" alt="{{ person.title }}" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('jm-people-photo--fallback');">
             {% else %}
-              {{ person.title | split: ' ' | map: 'first' | join: '' | upcase | slice: 0, 2 }}
+              <span class="jm-people-photo__initials">{{ initials }}</span>
             {% endif %}
           </div>
-          <div class="alt-person__body">
-            <h3 class="alt-person__name">{{ person.title }}</h3>
-            <p class="alt-person__role">{{ person.role }}</p>
+
+          <div class="jm-people-body">
+            <h3 class="jm-people-name">{{ person.title }}</h3>
+            <p class="jm-people-role">{{ person.role }}</p>
+            {% if person.content and person.content != "" %}
+              <div class="jm-people-bio">{{ person.content | markdownify | strip_html | truncate: 280 }}</div>
+            {% endif %}
+
+            {% if person.links %}
+              <p class="jm-people-actions">
+                {% for link in person.links %}{% if link.url and link.url != "" %}
+                  <a href="{{ link.url }}" rel="noopener">{{ link.label }}</a>
+                {% endif %}{% endfor %}
+              </p>
+            {% endif %}
           </div>
-        </article>
+        </li>
       {% endfor %}
-    </div>
+    </ul>
   {% endif %}
 
   {% if alumni.size > 0 %}
