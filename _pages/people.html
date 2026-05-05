@@ -61,7 +61,7 @@ author_profile: true
       {% for person in alumni %}
         <li class="alt-alumni__item">
           <span class="alt-alumni__name">{{ person.title }}</span> &mdash; {{ person.role }}
-          {% if person.next %}<span class="alt-alumni__next"> &middot; {{ person.next }}</span>{% endif %}
+          {% if person.now_at %}<span class="alt-alumni__next"> &middot; {{ person.now_at }}</span>{% endif %}
         </li>
       {% endfor %}
     </ul>
