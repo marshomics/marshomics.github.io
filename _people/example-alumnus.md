@@ -5,7 +5,7 @@ status: alumni
 order: 100
 photo: /images/people/placeholder.jpg
 permalink: /people/example-alumnus
-next: "Now postdoc at Example University"
+now_at: "Now postdoc at Example University"
 links:
   - label: "Website"
     url: ""
