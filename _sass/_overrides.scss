@@ -214,7 +214,7 @@ hr {
 
 #main {
   display: grid;
-  grid-template-columns: 200px 1fr;    /* narrower sidebar → wider Marsh Lab banner */
+  grid-template-columns: 230px 1fr;    /* slightly wider sidebar; sidebar gap unchanged */
   gap: var(--sidebar-gap);
   max-width: var(--jm-wrap-max);
   margin: 0 auto;
@@ -306,8 +306,14 @@ hr {
   background: var(--jm-bg-soft);
   padding: 1.4em 1.6em;
 }
+/* Bsky panel stretches to fill the remaining sidebar height so its gray
+   background reaches the bottom of the page (no scrollbar — content fills
+   only the top, the rest is empty gray panel). The .sidebar parent is a
+   flex column (set in #main > .sidebar above), so flex-grow: 1 here makes
+   this section consume all leftover vertical space. */
 .sidebar-section--bsky {
   padding: 1.4em 1.6em 2em;
+  flex-grow: 1;
 }
 
 /* Identity section: centered circular avatar + mono links list, no name/bio */
@@ -823,7 +829,11 @@ hr {
    `section-content` wrapper gives the same inline padding the preview uses
    inside the main column, and `scroll-margin-top` keeps anchor jumps from
    sliding under the sticky masthead. ---- */
-.section-content { padding: 0 2em; }
+/* Sub-sections (People, News) inset on the LEFT only — right edge runs out
+   to the column's right edge, matching the Marsh Lab intro-block above.
+   Left padding (1.8em) matches the intro-block's left padding so the two
+   read as a single column on the left. */
+.section-content { padding: 0 0 0 1.8em; }
 .section-content:last-child { padding-bottom: 4em; }
 
 #home, #people, #news { scroll-margin-top: 80px; }
