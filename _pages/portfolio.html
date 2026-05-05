@@ -7,9 +7,18 @@ author_profile: true
 
 {% include base_path %}
 
-<p>Ongoing and completed research projects, tools, and resources.</p>
+<section class="jm-collection jm-collection--research">
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+  <h1 class="alt-page__title">Research</h1>
+  <p class="alt-page__intro">Ongoing and completed projects from the lab — pipelines, comparative-genomics resources, and the questions we&rsquo;re currently chasing.</p>
 
+  {% assign items = site.portfolio | sort: 'order' %}
+  {% if items.size > 0 %}
+    <ul class="jm-collection-list">
+      {% for post in items %}
+        {% include archive-single-collection.html %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+</section>
