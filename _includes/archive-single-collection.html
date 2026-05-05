@@ -1,0 +1,47 @@
+{%- comment -%}
+  Generic single-item renderer for the Research (portfolio) and Software
+  collections. Reads optional front-matter fields:
+    - year   : displayed in left column if present
+    - repo   : repository URL  → "Repo" action link
+    - paper  : paper URL       → "Paper" action link
+    - docs   : docs URL        → "Docs" action link
+    - pypi   : pypi URL        → "PyPI" action link
+  Falls back to the post permalink for the title link if no external URL is set.
+{%- endcomment -%}
+{% include base_path %}
+
+{% if post.id %}
+  {% assign item_title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign item_title = post.title %}
+{% endif %}
+
+<li class="jm-collection-item">
+  {% if post.year %}
+    <time class="jm-collection-year">{{ post.year }}</time>
+  {% endif %}
+
+  <div class="jm-collection-body">
+    <h3 class="jm-collection-title">
+      {% if post.repo %}
+        <a href="{{ post.repo }}" rel="noopener">{{ item_title }}</a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ item_title }}</a>
+      {% endif %}
+    </h3>
+
+    {% if post.excerpt %}
+      <p class="jm-collection-excerpt">{{ post.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+    {% endif %}
+
+    {% if post.repo or post.paper or post.docs or post.pypi or post.url %}
+      <p class="jm-collection-actions">
+        {% if post.repo  %}<a href="{{ post.repo }}"  rel="noopener">Repo</a>{% endif %}
+        {% if post.paper %}<a href="{{ post.paper }}" rel="noopener">Paper</a>{% endif %}
+        {% if post.docs  %}<a href="{{ post.docs }}"  rel="noopener">Docs</a>{% endif %}
+        {% if post.pypi  %}<a href="{{ post.pypi }}"  rel="noopener">PyPI</a>{% endif %}
+        {% if post.url   %}<a href="{{ base_path }}{{ post.url }}" rel="permalink">Details</a>{% endif %}
+      </p>
+    {% endif %}
+  </div>
+</li>
