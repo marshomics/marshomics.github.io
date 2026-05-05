@@ -187,11 +187,16 @@ hr {
 /* theme toggle pushed off — keep masthead clean for the alt design */
 .masthead__menu-item.persist.tail { display: none; }
 
-/* ---- #main override: 2-column grid (sidebar + main column) ---- */
+/* ---- #main override: 2-column grid (sidebar + main column) ----
+   Horizontal gap (--sidebar-gap) is the canonical spacing token: it sets the
+   horizontal gap between sidebar and main, AND the vertical gap between
+   sidebar sections. Change it once to retune spacing across the layout. */
+:root { --sidebar-gap: 0.8em; }
+
 #main {
   display: grid;
   grid-template-columns: 240px 1fr;
-  gap: 1.5em;
+  gap: var(--sidebar-gap);
   max-width: var(--jm-wrap-max);
   margin: 0 auto;
   padding: 0 2.5em 0 0;     /* right padding makes main column narrower */
@@ -201,14 +206,17 @@ hr {
 }
 
 #main > .sidebar {
-  background: var(--jm-bg-soft);
+  background: transparent !important;   /* sections carry their own gray panel bg now */
   font-size: 0.9em;
-  padding: 0 !important;            /* override academicpages base 60.4px padding-top */
-  margin: 54px 0 0 0 !important;    /* push sidebar down so its top aligns with intro-block top */
+  padding: 0 !important;
+  margin: 54px 0 0 0 !important;
   width: auto;
   float: none;
   min-width: 0;
   position: static;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sidebar-gap);              /* vertical gap between sections matches horizontal gap */
 }
 @media (max-width: 820px) {
   #main > .sidebar { border-bottom: 1px solid var(--jm-rule); }
@@ -270,15 +278,60 @@ hr {
   border-bottom: none;
 }
 
-/* ---- sidebar (Bluesky-only) ---- */
-/* Suppress the academicpages default author-profile so the sidebar is bsky-only */
-.sidebar .author__avatar,
+/* ---- Sidebar sections — each its own tinted panel ---- */
+.sidebar-section {
+  background: var(--jm-bg-soft);
+  padding: 1.4em 1.6em;
+}
+.sidebar-section--bsky {
+  padding: 1.4em 1.6em 2em;
+}
+
+/* Identity section: small circular avatar + mono links list, no name/bio */
+.sidebar .author__avatar {
+  display: block !important;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--jm-rule);
+  background: var(--jm-bg);
+  margin: 0 0 1em;
+  padding: 0;
+}
+.sidebar-section--identity .author__urls {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-section--identity .author__urls li {
+  padding: 0.25em 0;
+  margin: 0;
+  list-style: none;
+  background: transparent !important;
+  border: none !important;
+}
+.sidebar-section--identity .author__urls li::before { display: none !important; content: none !important; }
+.sidebar-section--identity .author__urls a {
+  font-family: var(--jm-font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--jm-ink-soft);
+  border-bottom: none;
+  padding: 0;
+  background: transparent !important;
+  transition: color 150ms ease;
+}
+.sidebar-section--identity .author__urls a:hover { color: var(--jm-accent-2); }
+
+/* Hide any other author-profile fields academicpages would render
+   (name/bio/location/pronouns/work-title) — we only want avatar + links. */
 .sidebar .author__name,
 .sidebar .author__bio,
 .sidebar .author__pronouns,
 .sidebar .author__location,
-.sidebar .author__urls-wrapper,
-.sidebar .author__urls,
 .sidebar .author__work-title,
 .sidebar h3.author__work-title { display: none !important; }
 
@@ -288,7 +341,7 @@ hr {
 }
 .bsky-mini,
 .jm-bsky-mini {
-  padding: calc(1.4rem + 3px) 1.6em 4em;     /* aligns title with intro-block content edge */
+  padding: 0;                          /* parent .sidebar-section--bsky provides padding */
   margin: 0;
 }
 /* Bsky title — high-specificity overrides so academicpages base h3 styling
