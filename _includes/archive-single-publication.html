@@ -1,0 +1,45 @@
+{%- comment -%}
+  Custom publication row — used only by /_pages/publications.html.
+  Mirrors the alt-news visual language from the home page: year column on
+  the left (mono red), title + citation + action links on the right.
+  Kept separate from _includes/archive-single.html so other archive
+  collections (talks, teaching, portfolio) keep the upstream layout.
+{%- endcomment -%}
+{% include base_path %}
+
+{% if post.id %}
+  {% assign pub_title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign pub_title = post.title %}
+{% endif %}
+
+<li class="jm-pub-item">
+  <time class="jm-pub-year" datetime="{{ post.date | default: '1900-01-01' | date_to_xmlschema }}">
+    {{ post.date | default: "1900-01-01" | date: "%Y" }}
+  </time>
+
+  <div class="jm-pub-body">
+    <h3 class="jm-pub-title">
+      {% if post.paperurl %}
+        <a href="{{ post.paperurl }}" rel="noopener">{{ pub_title }}</a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ pub_title }}</a>
+      {% endif %}
+    </h3>
+
+    {% if post.citation %}
+      <p class="jm-pub-citation">{{ post.citation | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+    {% elsif post.venue %}
+      <p class="jm-pub-citation"><i>{{ post.venue }}</i></p>
+    {% endif %}
+
+    {% if post.paperurl or post.slidesurl or post.bibtexurl or post.url %}
+      <p class="jm-pub-actions">
+        {% if post.paperurl %}<a href="{{ post.paperurl }}" rel="noopener">Paper</a>{% endif %}
+        {% if post.slidesurl %}<a href="{{ post.slidesurl }}" rel="noopener">Slides</a>{% endif %}
+        {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}" rel="noopener">BibTeX</a>{% endif %}
+        {% if post.url and post.id %}<a href="{{ base_path }}{{ post.url }}" rel="permalink">Details</a>{% endif %}
+      </p>
+    {% endif %}
+  </div>
+</li>
