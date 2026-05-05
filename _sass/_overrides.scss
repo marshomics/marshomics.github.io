@@ -897,13 +897,21 @@ hr {
   border-bottom: none;
   padding-bottom: 0;
 }
-.alt-person__role {
-  font-family: var(--jm-font-mono);
-  font-size: 0.5rem;                   /* much smaller per user feedback */
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--jm-accent-2);
-  margin: 0;
+/* The selector .alt-person__role wasn't winning over academicpages's
+   archive-page <p> styling (which forces 1rem). Use a more-specific
+   selector + !important so the role label renders at the small mono
+   small-cap size from the preview. */
+.alt-person .alt-person__role,
+.alt-people .alt-person__role,
+p.alt-person__role {
+  font-family: var(--jm-font-mono) !important;
+  font-size: 0.55rem !important;       /* ≈ 8.8px at 16px root — matches preview at this viewport */
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--jm-accent-2) !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
 }
 .alt-person__bio { display: none; }
 .alt-person__links { display: none; }
