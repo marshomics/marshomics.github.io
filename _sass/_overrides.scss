@@ -786,12 +786,198 @@ hr {
   margin: 0;
 }
 
-/* ---- in-page main divider (dotted), if used ---- */
+/* ---- in-page main divider (dashed) — separates intro-block from
+   the People + News sub-sections that live on the same home page. ---- */
 .main-divider {
   border: none;
-  border-top: 2px dotted var(--jm-rule);
-  margin: 3em 0;
+  border-top: 2px dashed var(--jm-rule);
+  margin: 2.5em 0;
   height: 0;
+}
+
+/* ---- Home-page sub-sections (People, News) embedded under the intro-block.
+   Mirrors preview-alt-graphic.html exactly (alt-* class names). The
+   `section-content` wrapper gives the same inline padding the preview uses
+   inside the main column, and `scroll-margin-top` keeps anchor jumps from
+   sliding under the sticky masthead. ---- */
+.section-content { padding: 0 2em; }
+.section-content:last-child { padding-bottom: 4em; }
+
+#home, #people, #news { scroll-margin-top: 80px; }
+
+.alt-page__title {
+  font-family: var(--jm-font-sans);
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--jm-ink);
+  margin: 0 0 0.5em;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.alt-page__intro {
+  font-family: var(--jm-font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--jm-ink-soft);
+  max-width: 62ch;
+  margin: 0 0 2em;
+}
+
+/* People grid — small circular portraits */
+.alt-people {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.6em 1.2em;
+  margin: 1.5em 0 3em;
+}
+.alt-person {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+.alt-person__photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--jm-bg-soft);
+  border: 1px solid var(--jm-rule);
+  margin: 0 0 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--jm-font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--jm-muted);
+  flex: none;
+  overflow: hidden;
+  padding: 0;
+}
+.alt-person__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.alt-person__body {
+  padding: 0;
+  flex: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.alt-person__name {
+  font-family: var(--jm-font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: -0.005em;
+  color: var(--jm-ink);
+  margin: 0 0 0.15em;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.alt-person__role {
+  font-family: var(--jm-font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--jm-accent-2);
+  margin: 0;
+}
+.alt-person__bio { display: none; }
+.alt-person__links { display: none; }
+
+/* Alumni — list with the heavy-rule heading from the preview */
+.alt-alumni-title {
+  font-family: var(--jm-font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--jm-accent-2);
+  margin: 2em 0 0.8em;
+  padding-top: 1em;
+  border-top: 2px solid var(--jm-ink);
+  border-bottom: none;
+  font-weight: 500;
+  display: block;
+}
+.alt-alumni {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+.alt-alumni__item {
+  padding: 0.55em 0;
+  border-bottom: 1px solid var(--jm-rule);
+  font-size: 0.92rem;
+  color: var(--jm-ink-soft);
+  line-height: 1.5;
+  list-style: none;
+}
+.alt-alumni__item::before { display: none !important; content: none !important; }
+.alt-alumni__name { color: var(--jm-ink); font-weight: 500; }
+.alt-alumni__next {
+  font-family: var(--jm-font-mono);
+  font-size: 0.78rem;
+  color: var(--jm-muted);
+  letter-spacing: 0.04em;
+}
+
+/* News list — date column + title/excerpt */
+.alt-news {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0;
+  border-top: 2px solid var(--jm-ink);
+}
+.alt-news__item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5em;
+  padding: 1.2em 0;
+  border-bottom: 1px solid var(--jm-rule);
+  align-items: baseline;
+  list-style: none;
+}
+.alt-news__item::before { display: none !important; content: none !important; }
+@media (max-width: 600px) {
+  .alt-news__item { grid-template-columns: 1fr; gap: 0.4em; }
+}
+.alt-news__date {
+  font-family: var(--jm-font-mono);
+  font-size: 0.74rem;
+  color: var(--jm-accent-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 0.2em;
+}
+.alt-news__title {
+  font-family: var(--jm-font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0 0.3em;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.alt-news__title a {
+  color: var(--jm-ink);
+  border-bottom: none;
+}
+.alt-news__title a:hover { color: var(--jm-accent-2); }
+.alt-news__excerpt {
+  font-size: 0.92rem;
+  color: var(--jm-ink-soft);
+  margin: 0;
 }
 
 /* ---- buttons (used by some templates) ---- */
