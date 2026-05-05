@@ -943,6 +943,7 @@ p.alt-person__role {
   list-style: none;
   padding: 0;
   margin: 0 0 1em;
+  border-top: 2px solid var(--jm-ink);   /* matches .jm-people-list — gives "Alumni" a line below the heading */
 }
 .alt-alumni__item {
   padding: 0.55em 0;
