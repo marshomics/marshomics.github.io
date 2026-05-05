@@ -4,7 +4,7 @@
 
 main:
   - title: "People"
-    url: /people/
+    url: /#people
 
   - title: "Research"
     url: /portfolio/
@@ -16,7 +16,7 @@ main:
     url: /software/
 
   - title: "News"
-    url: /news/
+    url: /#news
 
   - title: "Join"
     url: /join/
