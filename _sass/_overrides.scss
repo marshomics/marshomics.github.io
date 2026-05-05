@@ -287,7 +287,8 @@ hr {
   padding: 1.4em 1.6em 2em;
 }
 
-/* Identity section: small circular avatar + mono links list, no name/bio */
+/* Identity section: centered circular avatar + mono links list, no name/bio */
+.sidebar-section--identity { text-align: center; }
 .sidebar .author__avatar {
   display: block !important;
   width: 80px;
@@ -296,13 +297,14 @@ hr {
   object-fit: cover;
   border: 1px solid var(--jm-rule);
   background: var(--jm-bg);
-  margin: 0 0 1em;
+  margin: 0 auto 1em !important;       /* centered horizontally */
   padding: 0;
 }
 .sidebar-section--identity .author__urls {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 .sidebar-section--identity .author__urls li {
   padding: 0.25em 0;
@@ -310,6 +312,7 @@ hr {
   list-style: none;
   background: transparent !important;
   border: none !important;
+  text-align: center;
 }
 .sidebar-section--identity .author__urls li::before { display: none !important; content: none !important; }
 .sidebar-section--identity .author__urls a {
