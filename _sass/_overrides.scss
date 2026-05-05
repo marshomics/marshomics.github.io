@@ -205,7 +205,7 @@ hr {
    Horizontal gap (--sidebar-gap) is the canonical spacing token: it sets the
    horizontal gap between sidebar and main, AND the vertical gap between
    sidebar sections. Change it once to retune spacing across the layout. */
-:root { --sidebar-gap: 0.8em; }
+:root { --sidebar-gap: 1.5em; }   /* matches preview-alt-graphic.html .page-wrap gap */
 
 #main {
   display: grid;
@@ -518,7 +518,7 @@ hr {
 .intro-block {
   background: var(--jm-bg-tint);
   border-top: 3px solid var(--jm-ink);
-  padding: 1.4em 1.4em 1.6em 1.8em;
+  padding: 1.4em 1.8em 1.6em;       /* matches preview-alt-graphic.html exactly */
   margin: 0;
   display: flex;
   flex-direction: column;
