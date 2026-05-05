@@ -24,7 +24,7 @@ author:
   # Biographic information
   # The "author" block here is repurposed for the LAB identity shown in the
   # sidebar across pages. Per-person details live in _people/ as a collection.
-  avatar           : "lab-logo.png"  # drop a square lab logo (or group photo) at images/lab-logo.png
+  avatar           : "profile.png"  # placeholder — swap for a square lab logo at images/lab-logo.png and update this line
   name             : "Marsh Lab"
   pronouns         :
   bio              : "Studying how archaea defend themselves from viruses, and how those viruses fight back."
@@ -58,7 +58,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : # your Bluesky handle if you use it
+  bluesky          : "jmarsh.bsky.social"
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
