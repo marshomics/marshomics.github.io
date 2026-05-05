@@ -254,8 +254,7 @@ hr {
    Dropping it lets the intro-block fill its column; sub-section content
    (e.g. .section-content) brings its own padding when it needs inset. */
 .page__inner-wrap { padding: 0; }
-.page__content { padding: 0; }
-.page__content { padding: 0 2em; }
+.page__content { padding: 0 !important; }
 .page__content > h1:first-child,
 .page__content > h2:first-child {
   margin-top: 1.5em;
