@@ -116,6 +116,7 @@ hr {
   align-items: center;
   justify-content: flex-end;
   gap: 1em;                            /* uniform inter-item gap, tighter than preview's 1.4em */
+  width: 100%;                         /* span full row so margin-right:auto on the site-title has room to consume */
 }
 .greedy-nav .visible-links {
   list-style: none;
@@ -178,14 +179,17 @@ hr {
   padding: 0;
 }
 .greedy-nav .hidden-links a:hover { color: var(--jm-accent); }
-/* "Marsh Lab" site-title — sits inline with the rest of the nav at the
-   right edge (per preview-alt-graphic.html). Only the box styling is
-   overridden here; typography is in .masthead__menu-item--lg a below. */
+/* "Marsh Lab" site-title — pushed to the far left of the masthead via
+   margin-right: auto inside the flex container. The site-title <li> only
+   renders on sub-pages (per masthead.html's {% unless page.url == '/' %}),
+   so on home there's no LI to consume the auto margin and the nav simply
+   packs right via justify-content: flex-end above. */
 .masthead__menu-item--lg {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin-right: auto !important;
+  margin-left: 0 !important;
 }
 .masthead__menu-item--lg a {
   font-family: var(--jm-font-sans);
@@ -935,6 +939,10 @@ p.alt-person__role {
   font-weight: 500;
   display: block;
 }
+/* The first occurrence on a page (e.g. "Current members" before the
+   people grid) follows the page intro paragraph directly — drop the
+   2em top margin to avoid stacking with .alt-page__intro's bottom margin. */
+.alt-alumni-title--first { margin-top: 0; }
 .alt-alumni {
   list-style: none;
   padding: 0;
