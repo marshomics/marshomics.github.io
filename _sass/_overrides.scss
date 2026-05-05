@@ -996,14 +996,17 @@ hr {
 
 /* Align the top of the Publications block with the top of the sidebar's
    gray background. The sidebar carries `margin-top: 54px` (set higher up in
-   this file); matching it here keeps the two columns flush at the top. */
-.archive:has(.jm-pubs) {
-  margin-top: 54px;
-  padding-top: 0;
+   this file); matching it here keeps the two columns flush at the top.
+   Applied directly on .jm-pubs (the section in publications.html) rather
+   than via :has() on .archive, which the live build wasn't honoring. */
+.jm-pubs {
+  padding: 0;
+  margin: 54px 0 0 0 !important;
 }
-
-.jm-pubs { padding: 0; margin: 0; }
-.jm-pubs > .alt-page__title { margin-top: 0; padding-top: 0; }
+.jm-pubs > .alt-page__title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
 
 .jm-pub-cat-title {
   font-family: var(--jm-font-mono);
