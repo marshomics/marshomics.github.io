@@ -36,7 +36,11 @@
 }
 
 /* ---- global resets / base ---- */
-html { scroll-behavior: smooth; }
+/* Force html root to 16px so rem-based sizes match preview-alt-graphic.html
+   exactly. academicpages's _reset.scss bumps html to 18px at large viewports
+   (≥80em) which made every rem value ~12% larger than the preview. */
+html { scroll-behavior: smooth; font-size: 16px !important; }
+@media (min-width: 80em) { html { font-size: 16px !important; } }
 
 /* Force script tags hidden — academicpages's base CSS sets some inline scripts
    to display:block, which makes the bsky-feed-compact JavaScript render as
@@ -84,31 +88,33 @@ hr {
   background: var(--jm-bg);
   border-bottom: 1px solid var(--jm-rule);
 }
+/* Masthead — mirror preview-alt-graphic.html exactly: 1180px max-width
+   centered, padding 1.1em 2.5em 1.1em 1.5em (so the right edge aligns with
+   #main's right edge), all nav items packed to the right with a uniform
+   1.4em gap. The "Marsh Lab" site title (rendered on sub-pages, hidden on
+   home via masthead.html's {% unless page.url == '/' %}) sits inline with
+   the rest of the nav at the right edge. */
 .masthead__inner-wrap {
   max-width: var(--jm-wrap-max);
   margin: 0 auto;
-  padding: 1.1em 2.5em 1.1em 0;        /* left padding 0 → MARSH LAB aligns with sidebar's left edge; right padding aligns with main column's right edge */
+  padding: 1.1em 2.5em 1.1em 1.5em;
 }
 .masthead__menu, .masthead__menu nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
-/* Greedy-nav itself spans the full row so margin-right:auto on the
-   site-title (when present) can push it left while the rest pack right. */
 .greedy-nav {
   background: transparent;
-  width: 100%;
   display: flex;
   align-items: center;
-  gap: 1em;                            /* same gap as inside each ul → uniform spacing */
+  gap: 1.4em;                          /* gap between visible-links and hidden-links UL groups */
 }
 .greedy-nav .visible-links {
   list-style: none;
   padding: 0; margin: 0;
   display: flex;
-  flex: 1;                             /* take remaining row width so site-title margin-auto has space to consume */
-  justify-content: flex-end;           /* default packing for home (no site-title) */
-  gap: 1em;
+  gap: 1.4em;                          /* uniform inter-item gap */
   align-items: center;
 }
 .greedy-nav .visible-links li {
@@ -145,7 +151,7 @@ hr {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  gap: 1em;
+  gap: 1.4em;                          /* match visible-links + greedy-nav */
   visibility: visible !important;
   opacity: 1 !important;
   height: auto !important;
@@ -171,16 +177,14 @@ hr {
   padding: 0;
 }
 .greedy-nav .hidden-links a:hover { color: var(--jm-accent); }
-/* "Marsh Lab" site-title — pushed to the far left of the masthead via
-   margin-right: auto inside the visible-links flex container. On the home
-   page the site-title isn't rendered, so the rest of the nav simply packs
-   to the right via the visible-links justify-content: flex-end above. */
+/* "Marsh Lab" site-title — sits inline with the rest of the nav at the
+   right edge (per preview-alt-graphic.html). Only the box styling is
+   overridden here; typography is in .masthead__menu-item--lg a below. */
 .masthead__menu-item--lg {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
-  margin-right: auto !important;
-  margin-left: 0 !important;
+  margin: 0 !important;
 }
 .masthead__menu-item--lg a {
   font-family: var(--jm-font-sans);
@@ -818,7 +822,7 @@ hr {
 .alt-page__title {
   font-family: var(--jm-font-sans);
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 2rem;
   letter-spacing: -0.02em;
   color: var(--jm-ink);
   margin: 0 0 0.5em;
@@ -827,7 +831,7 @@ hr {
 }
 .alt-page__intro {
   font-family: var(--jm-font-sans);
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.55;
   color: var(--jm-ink-soft);
   max-width: 62ch;
@@ -886,7 +890,7 @@ hr {
 .alt-person__name {
   font-family: var(--jm-font-sans);
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   letter-spacing: -0.005em;
   color: var(--jm-ink);
   margin: 0 0 0.15em;
@@ -895,7 +899,7 @@ hr {
 }
 .alt-person__role {
   font-family: var(--jm-font-mono);
-  font-size: 0.55rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--jm-accent-2);
@@ -907,7 +911,7 @@ hr {
 /* Alumni — list with the heavy-rule heading from the preview */
 .alt-alumni-title {
   font-family: var(--jm-font-mono);
-  font-size: 0.66rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--jm-accent-2);
@@ -926,7 +930,7 @@ hr {
 .alt-alumni__item {
   padding: 0.55em 0;
   border-bottom: 1px solid var(--jm-rule);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   color: var(--jm-ink-soft);
   line-height: 1.5;
   list-style: none;
@@ -935,7 +939,7 @@ hr {
 .alt-alumni__name { color: var(--jm-ink); font-weight: 500; }
 .alt-alumni__next {
   font-family: var(--jm-font-mono);
-  font-size: 0.66rem;
+  font-size: 0.78rem;
   color: var(--jm-muted);
   letter-spacing: 0.04em;
 }
@@ -962,7 +966,7 @@ hr {
 }
 .alt-news__date {
   font-family: var(--jm-font-mono);
-  font-size: 0.62rem;
+  font-size: 0.74rem;
   color: var(--jm-accent-2);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -972,7 +976,7 @@ hr {
 .alt-news__title {
   font-family: var(--jm-font-sans);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin: 0 0 0.3em;
   letter-spacing: -0.005em;
   line-height: 1.3;
@@ -985,10 +989,9 @@ hr {
 }
 .alt-news__title a:hover { color: var(--jm-accent-2); }
 .alt-news__excerpt {
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   color: var(--jm-ink-soft);
   margin: 0;
-  line-height: 1.5;
 }
 
 /* ---- Publications page (/publications/) — alt-graphic aesthetic.
