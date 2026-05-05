@@ -1131,6 +1131,117 @@ p.alt-person__role {
 .jm-pub-actions a:last-child { margin-right: 0; }
 .jm-pub-actions a:hover { color: var(--jm-accent-2); }
 
+/* ---- People page rows — same row pattern as Publications, but the year
+   column is replaced with a circular photo (or initials fallback). Layout
+   metrics (70px left col, 1.1em vertical padding, heavy black top rule,
+   thin row separators) mirror .jm-pub-list exactly so the People page
+   reads at the same density as Publications. Alumni below uses the
+   existing .alt-alumni list, no photos.
+   ------------------------------------------------------------------ */
+
+.jm-people-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 2em;
+  border-top: 2px solid var(--jm-ink);
+}
+
+.jm-people-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1.5em;
+  padding: 1.1em 0;
+  border-bottom: 1px solid var(--jm-rule);
+  align-items: start;                  /* photo & text both align to top of row */
+  list-style: none;
+}
+.jm-people-item::before { display: none !important; content: none !important; }
+@media (max-width: 600px) {
+  .jm-people-item { grid-template-columns: 1fr; gap: 0.6em; }
+}
+
+.jm-people-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--jm-bg-soft);
+  border: 1px solid var(--jm-rule);
+  margin: 0 auto;                      /* center within the 70px column */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: none;
+}
+.jm-people-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.jm-people-photo__initials {
+  font-family: var(--jm-font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--jm-muted);
+}
+
+.jm-people-body { min-width: 0; }
+
+.jm-people-name {
+  font-family: var(--jm-font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  margin: 0 0 0.2em;
+  letter-spacing: -0.005em;
+  color: var(--jm-ink);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.jm-people-role,
+p.jm-people-role,
+.jm-people-body .jm-people-role {
+  font-family: var(--jm-font-mono) !important;
+  font-size: 0.55rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--jm-accent-2) !important;
+  margin: 0 0 0.5em !important;
+  line-height: 1.4 !important;
+}
+
+.jm-people-bio {
+  font-family: var(--jm-font-sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--jm-ink-soft);
+  margin: 0 0 0.4em;
+  max-width: 62ch;
+}
+
+.jm-people-actions {
+  margin: 0;
+  font-family: var(--jm-font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.jm-people-actions a {
+  color: var(--jm-muted);
+  border-bottom: none;
+  margin-right: 1.1em;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.jm-people-actions a:last-child { margin-right: 0; }
+.jm-people-actions a:hover { color: var(--jm-accent-2); }
+
 /* ---- Research + Software pages — same alt-graphic list aesthetic as
    Publications but without the year column. Each item is a heavy-rule-
    bordered row with a sans-bold title, small ink-soft excerpt, and a
