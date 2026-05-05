@@ -248,8 +248,13 @@ hr {
   padding: 0;
 }
 
-/* The page__inner-wrap from academicpages */
+/* The page__inner-wrap and page__content from academicpages — the latter
+   carries default horizontal padding (32px) which shrinks the intro-block
+   inside its grid column and breaks right-edge alignment with the masthead.
+   Dropping it lets the intro-block fill its column; sub-section content
+   (e.g. .section-content) brings its own padding when it needs inset. */
 .page__inner-wrap { padding: 0; }
+.page__content { padding: 0; }
 .page__content { padding: 0 2em; }
 .page__content > h1:first-child,
 .page__content > h2:first-child {
