@@ -7,8 +7,21 @@ author_profile: true
 
 {% include base_path %}
 
-<p>Tools, pipelines, and databases released by the lab. Source for most projects is on GitHub at <a href="https://github.com/marshomics">github.com/marshomics</a>.</p>
+<section class="jm-collection jm-collection--software">
 
-{% for post in site.software %}
-  {% include archive-single.html %}
-{% endfor %}
+  <h1 class="alt-page__title">Software</h1>
+  <p class="alt-page__intro">
+    Tools, pipelines, and databases released by the lab. Most source is on
+    GitHub at <a href="https://github.com/marshomics" rel="noopener">github.com/marshomics</a>.
+  </p>
+
+  {% assign items = site.software | sort: 'order' %}
+  {% if items.size > 0 %}
+    <ul class="jm-collection-list">
+      {% for post in items %}
+        {% include archive-single-collection.html %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+</section>
