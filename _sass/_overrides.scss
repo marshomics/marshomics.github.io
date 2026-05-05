@@ -989,21 +989,24 @@ hr {
    the left, title + citation + action links on the right.
    ------------------------------------------------------------------ */
 
-/* On the Publications page, suppress the academicpages-injected page title
-   (the larger "Publications" h1 the archive layout drops in before {{ content }})
-   — we render our own .alt-page__title inside .jm-pubs. */
-.archive:has(.jm-pubs) > .page__title { display: none !important; }
+/* On the Publications / Research / Software pages, suppress the
+   academicpages-injected .page__title (the layout drops one in before
+   {{ content }}). We render our own .alt-page__title inside the section. */
+.archive:has(.jm-pubs) > .page__title,
+.archive:has(.jm-collection) > .page__title { display: none !important; }
 
-/* Align the top of the Publications block with the top of the sidebar's
-   gray background. The sidebar carries `margin-top: 54px` (set higher up in
+/* Align the top of these sub-pages with the top of the sidebar's gray
+   background. The sidebar carries `margin-top: 54px` (set higher up in
    this file); matching it here keeps the two columns flush at the top.
-   Applied directly on .jm-pubs (the section in publications.html) rather
-   than via :has() on .archive, which the live build wasn't honoring. */
-.jm-pubs {
+   Applied directly on the section rather than via :has() on .archive,
+   which the live build wasn't honoring. */
+.jm-pubs,
+.jm-collection {
   padding: 0;
   margin: 54px 0 0 0 !important;
 }
-.jm-pubs > .alt-page__title {
+.jm-pubs > .alt-page__title,
+.jm-collection > .alt-page__title {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
@@ -1101,6 +1104,98 @@ hr {
 }
 .jm-pub-actions a:last-child { margin-right: 0; }
 .jm-pub-actions a:hover { color: var(--jm-accent-2); }
+
+/* ---- Research + Software pages — same alt-graphic list aesthetic as
+   Publications but without the year column. Each item is a heavy-rule-
+   bordered row with a sans-bold title, small ink-soft excerpt, and a
+   mono small-caps action row (Repo · Paper · Docs · PyPI · Details).
+   ------------------------------------------------------------------ */
+
+.jm-collection-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.4em 0 2em;
+  border-top: 2px solid var(--jm-ink);
+}
+
+.jm-collection-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1.5em;
+  padding: 1.1em 0;
+  border-bottom: 1px solid var(--jm-rule);
+  align-items: baseline;
+  list-style: none;
+}
+.jm-collection-item::before { display: none !important; content: none !important; }
+/* When no <time> year is rendered, collapse the row to a single column */
+.jm-collection-item:not(:has(.jm-collection-year)) {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (max-width: 600px) {
+  .jm-collection-item { grid-template-columns: 1fr; gap: 0.3em; }
+}
+
+.jm-collection-year {
+  font-family: var(--jm-font-mono);
+  font-size: 0.74rem;
+  color: var(--jm-accent-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 0.15em;
+}
+
+.jm-collection-body { min-width: 0; }
+
+.jm-collection-title {
+  font-family: var(--jm-font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  margin: 0 0 0.3em;
+  letter-spacing: -0.005em;
+  color: var(--jm-ink);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.jm-collection-title a {
+  color: var(--jm-ink);
+  border-bottom: none;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.jm-collection-title a:hover { color: var(--jm-accent-2); }
+
+.jm-collection-excerpt {
+  font-family: var(--jm-font-sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--jm-ink-soft);
+  margin: 0 0 0.4em;
+  max-width: 62ch;
+}
+.jm-collection-excerpt em,
+.jm-collection-excerpt i { color: var(--jm-ink); font-style: italic; }
+
+.jm-collection-actions {
+  margin: 0;
+  font-family: var(--jm-font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.jm-collection-actions a {
+  color: var(--jm-muted);
+  border-bottom: none;
+  margin-right: 1.1em;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.jm-collection-actions a:last-child { margin-right: 0; }
+.jm-collection-actions a:hover { color: var(--jm-accent-2); }
 
 
 /* ---- buttons (used by some templates) ---- */
