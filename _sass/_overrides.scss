@@ -108,13 +108,13 @@ hr {
   background: transparent;
   display: flex;
   align-items: center;
-  gap: 1.4em;                          /* gap between visible-links and hidden-links UL groups */
+  gap: 1em;                            /* tighter, uniform gap (visible↔hidden ULs) */
 }
 .greedy-nav .visible-links {
   list-style: none;
   padding: 0; margin: 0;
   display: flex;
-  gap: 1.4em;                          /* uniform inter-item gap */
+  gap: 1em;                            /* tighter, uniform inter-item gap */
   align-items: center;
 }
 .greedy-nav .visible-links li {
@@ -151,7 +151,7 @@ hr {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  gap: 1.4em;                          /* match visible-links + greedy-nav */
+  gap: 1em;                            /* match visible-links + greedy-nav */
   visibility: visible !important;
   opacity: 1 !important;
   height: auto !important;
@@ -209,7 +209,7 @@ hr {
 
 #main {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 200px 1fr;    /* narrower sidebar → wider Marsh Lab banner */
   gap: var(--sidebar-gap);
   max-width: var(--jm-wrap-max);
   margin: 0 auto;
@@ -549,7 +549,7 @@ hr {
 .intro-block .hero__title {
   font-family: var(--jm-font-sans);
   font-weight: 600;
-  font-size: clamp(1.9rem, 4.2vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);   /* slightly smaller per user feedback */
   line-height: 1.04;
   letter-spacing: -0.025em;
   color: var(--jm-ink);
@@ -558,7 +558,7 @@ hr {
 .intro-block .hero__title-period { color: var(--jm-accent-2); }
 .intro-block .hero__lede {
   font-family: var(--jm-font-sans);
-  font-size: 1rem;
+  font-size: 0.95rem;                  /* slightly smaller per user feedback */
   line-height: 1.45;
   color: var(--jm-ink-soft);
   margin: 0 0 0.85em;
@@ -899,7 +899,7 @@ hr {
 }
 .alt-person__role {
   font-family: var(--jm-font-mono);
-  font-size: 0.62rem;
+  font-size: 0.5rem;                   /* much smaller per user feedback */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--jm-accent-2);
