@@ -229,7 +229,7 @@ hr {
   background: transparent !important;   /* sections carry their own gray panel bg now */
   font-size: 0.9em;
   padding: 0 !important;
-  margin: 54px 0 0 0 !important;
+  margin: 3em 0 0 0 !important;
   width: auto;
   float: none;
   min-width: 0;
@@ -238,6 +238,10 @@ hr {
   overflow: visible !important;         /* defeat `overflow-y: auto` (the scrollbar) */
   display: flex;
   flex-direction: column;
+  /* margin-top below tracks the intro-block's top offset inside #main:
+     the empty .page__title above it carries `margin-top: 1.5em` +
+     `padding-top: 1.5em` = 3em. Matching that aligns the sidebar's top
+     edge with the Marsh Lab intro-block's 3px top rule. */
   gap: var(--sidebar-gap);              /* vertical gap between sections matches horizontal gap */
 }
 @media (max-width: 820px) {
@@ -1050,15 +1054,16 @@ p.alt-person__role {
 .archive:has(.jm-pubs) > .page__title,
 .archive:has(.jm-collection) > .page__title { display: none !important; }
 
-/* Align the top of these sub-pages with the top of the sidebar's gray
-   background. The sidebar carries `margin-top: 54px` (set higher up in
-   this file); matching it here keeps the two columns flush at the top.
-   Applied directly on the section rather than via :has() on .archive,
-   which the live build wasn't honoring. */
+/* Align the top of these sub-pages with the sidebar's top edge. The
+   sidebar carries `margin-top: 3em` (set higher up in this file, sized
+   to match the intro-block's empty page__title offset on home); matching
+   3em here keeps the two columns flush at the top across all archive
+   pages. Applied directly on the section rather than via :has() on
+   .archive, which the live build wasn't honoring. */
 .jm-pubs,
 .jm-collection {
   padding: 0;
-  margin: 54px 0 0 0 !important;
+  margin: 3em 0 0 0 !important;
 }
 .jm-pubs > .alt-page__title,
 .jm-collection > .alt-page__title {
