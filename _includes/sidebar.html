@@ -1,30 +1,44 @@
 {% include base_path %}
 
 {%- comment -%}
-  Sidebar for the alt-graphic design: shows the compact Bluesky feed only,
-  on every page. The lab identity (avatar/name/bio/social) is suppressed
-  via SCSS — the masthead's "Marsh Lab" link carries lab identity on internal
-  pages, and the home hero shows the lab name prominently on /.
-
-  Per-page flags still recognised:
-    bsky_sidebar: false  → suppress the Bluesky feed on a specific page
-    sidebar: [...]       → academicpages's manual sidebar entries (still works)
+  Sidebar with two sections separated by whitespace:
+    1. Identity (avatar + links — github, scholar, orcid, email)
+    2. Bluesky feed
+  Each section is its own tinted panel; the gap between them is set in SCSS
+  to match the horizontal sidebar/main gap.
 {%- endcomment -%}
 
-{% if page.bsky_sidebar != false %}
-  <div class="sidebar sticky">
-    {% include bsky-feed-compact.html %}
-    {% if page.sidebar %}
-      {% for s in page.sidebar %}
-        {% if s.image %}
-          <img src="{% if s.image contains "://" %}{{ s.image }}{% else %}{{ s.image | prepend: "/images/" | prepend: base_path }}{% endif %}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
-        {% endif %}
-        {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-        {% if s.text %}{{ s.text | markdownify }}{% endif %}
-      {% endfor %}
-      {% if page.sidebar.nav %}
-        {% include nav_list nav=page.sidebar.nav %}
-      {% endif %}
+<div class="sidebar sticky">
+
+  <div class="sidebar-section sidebar-section--identity">
+    {% if site.author.avatar %}
+      <img class="author__avatar"
+           src="{{ '/images/' | append: site.author.avatar | relative_url }}"
+           alt="{{ site.author.name | default: site.title }}">
     {% endif %}
+    <ul class="author__urls">
+      {% if site.author.email %}
+        <li><a href="mailto:{{ site.author.email }}" rel="me">Email</a></li>
+      {% endif %}
+      {% if site.author.github %}
+        <li><a href="https://github.com/{{ site.author.github }}" rel="me">GitHub</a></li>
+      {% endif %}
+      {% if site.author.googlescholar %}
+        <li><a href="{{ site.author.googlescholar }}" rel="me">Scholar</a></li>
+      {% endif %}
+      {% if site.author.orcid %}
+        <li><a href="{{ site.author.orcid }}" rel="me">ORCID</a></li>
+      {% endif %}
+      {% if site.author.bluesky %}
+        <li><a href="https://bsky.app/profile/{{ site.author.bluesky | remove: '@' }}" rel="me">Bluesky</a></li>
+      {% endif %}
+    </ul>
   </div>
-{% endif %}
+
+  {% if page.bsky_sidebar != false %}
+  <div class="sidebar-section sidebar-section--bsky">
+    {% include bsky-feed-compact.html %}
+  </div>
+  {% endif %}
+
+</div>
