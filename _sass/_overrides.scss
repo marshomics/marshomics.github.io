@@ -932,17 +932,13 @@ p.alt-person__role {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--jm-accent-2);
-  margin: 2em 0 0.8em;
+  margin: 0 0 0.8em;                   /* 0 top — preceding element's bottom-margin provides the gap */
   padding-top: 1em;
   border-top: 2px solid var(--jm-ink);
   border-bottom: none;
   font-weight: 500;
   display: block;
 }
-/* The first occurrence on a page (e.g. "Current members" before the
-   people grid) follows the page intro paragraph directly — drop the
-   2em top margin to avoid stacking with .alt-page__intro's bottom margin. */
-.alt-alumni-title--first { margin-top: 0; }
 .alt-alumni {
   list-style: none;
   padding: 0;
