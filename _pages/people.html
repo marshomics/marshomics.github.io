@@ -18,7 +18,7 @@ author_profile: true
   {% assign alumni  = site.people | where: "status", "alumni"  | sort: "order" %}
 
   {% if current.size > 0 %}
-    <h2 class="alt-alumni-title alt-alumni-title--first">Current members</h2>
+    <h2 class="alt-alumni-title">Current members</h2>
     <ul class="jm-people-list">
       {% for person in current %}
         {%- comment -%}
