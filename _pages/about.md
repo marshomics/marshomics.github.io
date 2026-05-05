@@ -9,7 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-<section class="intro-block">
+<section id="home" class="intro-block">
 
   <div class="hero">
 
@@ -82,4 +82,92 @@ redirect_from:
     </article>
   </div>
 
+</section>
+
+<hr class="main-divider">
+
+<section id="people" class="section-content">
+  <h1 class="alt-page__title">People</h1>
+  <p class="alt-page__intro">We&rsquo;re a mixed group of computational and experimental microbiologists. The lab is small enough that everyone collaborates with everyone, large enough to run several independent project lines.</p>
+
+  <div class="alt-people">
+    <article class="alt-person">
+      <div class="alt-person__photo">JM</div>
+      <div class="alt-person__body">
+        <h3 class="alt-person__name">James Marsh</h3>
+        <p class="alt-person__role">Principal Investigator</p>
+      </div>
+    </article>
+    <article class="alt-person">
+      <div class="alt-person__photo">P</div>
+      <div class="alt-person__body">
+        <h3 class="alt-person__name">Postdoc Name</h3>
+        <p class="alt-person__role">Postdoctoral researcher</p>
+      </div>
+    </article>
+    <article class="alt-person">
+      <div class="alt-person__photo">G</div>
+      <div class="alt-person__body">
+        <h3 class="alt-person__name">Grad Student</h3>
+        <p class="alt-person__role">PhD student</p>
+      </div>
+    </article>
+    <article class="alt-person">
+      <div class="alt-person__photo">U</div>
+      <div class="alt-person__body">
+        <h3 class="alt-person__name">Undergrad Researcher</h3>
+        <p class="alt-person__role">Undergraduate researcher</p>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="alt-alumni-title">Alumni</h2>
+  <ul class="alt-alumni">
+    <li class="alt-alumni__item">
+      <span class="alt-alumni__name">Alumna Name</span> &mdash; Former PhD student (graduated 2024)
+      <span class="alt-alumni__next"> &middot; Now postdoc at Example University</span>
+    </li>
+    <li class="alt-alumni__item">
+      <span class="alt-alumni__name">Alumnus Name</span> &mdash; Former postdoc (2022&ndash;2025)
+      <span class="alt-alumni__next"> &middot; Now Assistant Professor at Example State</span>
+    </li>
+  </ul>
+</section>
+
+<hr class="main-divider">
+
+<section id="news" class="section-content">
+  <h1 class="alt-page__title">News</h1>
+  <p class="alt-page__intro">Lab updates, new preprints and papers, talks, and announcements.</p>
+
+  <ul class="alt-news">
+    <li class="alt-news__item">
+      <time class="alt-news__date">Sep 1, 2025</time>
+      <div>
+        <h3 class="alt-news__title"><a href="#">Welcome to the new lab members</a></h3>
+        <p class="alt-news__excerpt">Two new graduate students and a postdoc are joining the lab this fall.</p>
+      </div>
+    </li>
+    <li class="alt-news__item">
+      <time class="alt-news__date">Jul 15, 2025</time>
+      <div>
+        <h3 class="alt-news__title"><a href="#">Preprint out on bioRxiv</a></h3>
+        <p class="alt-news__excerpt">Our work on archaeal defense system X is now on bioRxiv.</p>
+      </div>
+    </li>
+    <li class="alt-news__item">
+      <time class="alt-news__date">Jun 10, 2025</time>
+      <div>
+        <h3 class="alt-news__title"><a href="#">Talk at SMBE</a></h3>
+        <p class="alt-news__excerpt">James gave an invited talk at SMBE on archaeal anti-defense systems.</p>
+      </div>
+    </li>
+    <li class="alt-news__item">
+      <time class="alt-news__date">Apr 1, 2025</time>
+      <div>
+        <h3 class="alt-news__title"><a href="#">Lab established</a></h3>
+        <p class="alt-news__excerpt">The Marsh Lab is officially open at Department, Institution.</p>
+      </div>
+    </li>
+  </ul>
 </section>
