@@ -39,7 +39,7 @@ author:
   googlescholar    : # your Google Scholar profile URL
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : # your ORCID URL, e.g. https://orcid.org/0000-0000-0000-0000
+  orcid            : "https://orcid.org/0000-0003-4681-1012"
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # your PubMed search URL
@@ -58,7 +58,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : jmarsh.bsky.social
+  bluesky          : # your Bluesky handle if you use it
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
