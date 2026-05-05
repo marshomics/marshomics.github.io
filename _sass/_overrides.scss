@@ -989,7 +989,21 @@ hr {
    the left, title + citation + action links on the right.
    ------------------------------------------------------------------ */
 
-.jm-pubs { padding: 0; }
+/* On the Publications page, suppress the academicpages-injected page title
+   (the larger "Publications" h1 the archive layout drops in before {{ content }})
+   — we render our own .alt-page__title inside .jm-pubs. */
+.archive:has(.jm-pubs) > .page__title { display: none !important; }
+
+/* Align the top of the Publications block with the top of the sidebar's
+   gray background. The sidebar carries `margin-top: 54px` (set higher up in
+   this file); matching it here keeps the two columns flush at the top. */
+.archive:has(.jm-pubs) {
+  margin-top: 54px;
+  padding-top: 0;
+}
+
+.jm-pubs { padding: 0; margin: 0; }
+.jm-pubs > .alt-page__title { margin-top: 0; padding-top: 0; }
 
 .jm-pub-cat-title {
   font-family: var(--jm-font-mono);
