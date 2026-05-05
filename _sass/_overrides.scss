@@ -104,18 +104,23 @@ hr {
   align-items: center;
   justify-content: flex-end;
 }
+/* Greedy-nav: all LI nav items are made direct flex children of the nav
+   itself via `display: contents` on the UL wrappers. That way every gap
+   between items is exactly the same value (the .greedy-nav gap), instead
+   of having one boundary at the visible-links↔hidden-links UL seam treated
+   differently from the within-UL gaps. Mirrors preview-alt-graphic.html's
+   flat <a>-as-direct-children structure. */
 .greedy-nav {
   background: transparent;
   display: flex;
   align-items: center;
-  gap: 1em;                            /* tighter, uniform gap (visible↔hidden ULs) */
+  justify-content: flex-end;
+  gap: 1em;                            /* uniform inter-item gap, tighter than preview's 1.4em */
 }
 .greedy-nav .visible-links {
   list-style: none;
   padding: 0; margin: 0;
-  display: flex;
-  gap: 1em;                            /* tighter, uniform inter-item gap */
-  align-items: center;
+  display: contents !important;        /* dissolve UL so LIs are direct flex children of .greedy-nav */
 }
 .greedy-nav .visible-links li {
   padding: 0; margin: 0;
@@ -142,20 +147,16 @@ hr {
    positioned dropdown, so all 6 nav items are always visible. */
 .greedy-nav .hidden-links,
 .greedy-nav .hidden-links.hidden {
-  display: flex !important;
+  display: contents !important;        /* dissolve UL so its LIs are direct flex children of .greedy-nav too */
   position: static !important;
-  flex-direction: row;
   list-style: none;
   padding: 0;
   margin: 0;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  gap: 1em;                            /* match visible-links + greedy-nav */
   visibility: visible !important;
   opacity: 1 !important;
-  height: auto !important;
-  overflow: visible !important;
 }
 .greedy-nav .hidden-links li {
   display: list-item;
