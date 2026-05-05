@@ -348,19 +348,17 @@ hr {
 .sidebar .jm-bsky-mini__link:hover .jm-bsky-mini__text {
   color: var(--jm-accent-2) !important;
 }
-/* Match preview-alt-graphic.html's bsky styling exactly. Use explicit px
-   because academicpages sets html font-size to 18px, so rem values render
-   ~12% larger here than they did in the (16px-default) preview. */
+/* Compact bsky feed — explicit px so academicpages 18px root doesn't scale up. */
 #main > .sidebar .bsky-mini__date,
 #main > .sidebar .jm-bsky-mini__date,
 .sidebar .bsky-mini__date,
 .sidebar .jm-bsky-mini__date {
   display: block !important;
   font-family: var(--jm-font-mono) !important;
-  font-size: 10.5px !important;        /* matches preview's 0.66rem * 16 */
+  font-size: 8px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;   /* matches preview */
+  letter-spacing: 0.08em !important;
   color: var(--jm-muted) !important;
   margin: 0 0 0.3em !important;
   padding: 0 !important;
@@ -372,7 +370,7 @@ hr {
 .sidebar .bsky-mini__text,
 .sidebar .jm-bsky-mini__text {
   font-family: var(--jm-font-sans) !important;
-  font-size: 12.5px !important;        /* matches preview's 0.78rem * 16 */
+  font-size: 9.5px !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
   color: var(--jm-ink-soft) !important;
