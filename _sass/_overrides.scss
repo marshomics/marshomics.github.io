@@ -232,7 +232,9 @@ hr {
   width: auto;
   float: none;
   min-width: 0;
-  position: static;
+  position: static !important;          /* defeat academicpages's @media (min-width: 1024px) `position: fixed` */
+  height: auto !important;              /* defeat `height: 100vh` from same media query (capped sidebar at viewport height) */
+  overflow: visible !important;         /* defeat `overflow-y: auto` (the scrollbar) */
   display: flex;
   flex-direction: column;
   gap: var(--sidebar-gap);              /* vertical gap between sections matches horizontal gap */
@@ -835,6 +837,12 @@ hr {
    read as a single column on the left. */
 .section-content { padding: 0 0 0 1.8em; }
 .section-content:last-child { padding-bottom: 4em; }
+
+/* On the home page, sub-section intro paragraphs (.section-content > p)
+   should run to the column's right edge instead of being capped at 62ch.
+   Dedicated archive pages (/people/, /publications/, etc.) keep the
+   readability cap from the base .alt-page__intro rule below. */
+.section-content .alt-page__intro { max-width: none; }
 
 #home, #people, #news { scroll-margin-top: 80px; }
 
