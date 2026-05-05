@@ -291,13 +291,13 @@ hr {
 .sidebar-section--identity { text-align: center; }
 .sidebar .author__avatar {
   display: block !important;
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--jm-rule);
   background: var(--jm-bg);
-  margin: 0 auto 1em !important;       /* centered horizontally */
+  margin: 0 auto 1.1em !important;     /* centered horizontally */
   padding: 0;
 }
 .sidebar-section--identity .author__urls {
