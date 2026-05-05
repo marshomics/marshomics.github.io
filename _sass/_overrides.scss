@@ -87,19 +87,28 @@ hr {
 .masthead__inner-wrap {
   max-width: var(--jm-wrap-max);
   margin: 0 auto;
-  padding: 1.1em 2.5em 1.1em 1.5em;     /* right padding aligns with main section */
+  padding: 1.1em 2.5em 1.1em 0;        /* left padding 0 → MARSH LAB aligns with sidebar's left edge; right padding aligns with main column's right edge */
 }
 .masthead__menu, .masthead__menu nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
-.greedy-nav { background: transparent; }
+/* Greedy-nav itself spans the full row so margin-right:auto on the
+   site-title (when present) can push it left while the rest pack right. */
+.greedy-nav {
+  background: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1em;                            /* same gap as inside each ul → uniform spacing */
+}
 .greedy-nav .visible-links {
   list-style: none;
   padding: 0; margin: 0;
   display: flex;
-  gap: 1.4em;
+  flex: 1;                             /* take remaining row width so site-title margin-auto has space to consume */
+  justify-content: flex-end;           /* default packing for home (no site-title) */
+  gap: 1em;
   align-items: center;
 }
 .greedy-nav .visible-links li {
@@ -136,7 +145,7 @@ hr {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  gap: 1.4em;
+  gap: 1em;
   visibility: visible !important;
   opacity: 1 !important;
   height: auto !important;
@@ -162,15 +171,16 @@ hr {
   padding: 0;
 }
 .greedy-nav .hidden-links a:hover { color: var(--jm-accent); }
-/* Add gap between the visible-links and hidden-links ULs */
-.greedy-nav { gap: 1.4em; }
-
-/* "Marsh Lab" site-title — neutralize academicpages base styling */
+/* "Marsh Lab" site-title — pushed to the far left of the masthead via
+   margin-right: auto inside the visible-links flex container. On the home
+   page the site-title isn't rendered, so the rest of the nav simply packs
+   to the right via the visible-links justify-content: flex-end above. */
 .masthead__menu-item--lg {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
-  margin-right: 1.4em;
+  margin-right: auto !important;
+  margin-left: 0 !important;
 }
 .masthead__menu-item--lg a {
   font-family: var(--jm-font-sans);
